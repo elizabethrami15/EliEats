@@ -1,51 +1,120 @@
+<title>Restaurants | EliEats</title>
 
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1>EliEats</h1>
 
-    <title>Restaurants | EliEats</title>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="about.html">About</a>
+    </nav>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+</header>
 
-<body>
+<main>
 
-    <header>
+    <section class="restaurant-section">
 
-        <h1>EliEats</h1>
+        <h2>Find a Restaurant</h2>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="about.html">About</a>
-        </nav>
+        <p>
+            Search for restaurants based on your
+            accessibility and dietary requirements.
+        </p>
 
-    </header>
+        <!-- Search and Filter -->
+        <div class="search-area">
 
-    <main>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search restaurants..."
+            >
 
-        <section class="hero">
+            <select id="dietFilter">
 
-            <h2>Find a Restaurant</h2>
+                <option value="all">
+                    All Dietary Options
+                </option>
 
-            <p>
-                Search and filter restaurants based on
-                your accessibility and dietary requirements.
-            </p>
+                <option value="vegetarian">
+                    Vegetarian
+                </option>
 
-            <!-- Search and filters will be added here -->
+                <option value="vegan">
+                    Vegan
+                </option>
 
-        </section>
+                <option value="gluten-free">
+                    Gluten-Free
+                </option>
 
-    </main>
+            </select>
 
-    <footer>
-        <p>© 2026 EliEats</p>
-    </footer>
+        </div>
 
-</body>
+        <!-- Restaurant Cards -->
+        <div id="restaurantList" class="restaurant-list">
 
-</html>
+            <!-- Restaurant 1 -->
+            <div
+                class="restaurant-card"
+                data-diet="vegetarian vegan"
+            >
+
+                <h3>Green Garden</h3>
+
+                <p>🥗 Vegetarian & Vegan</p>
+
+                <p>⭐ 4.7</p>
+
+                <p>♿ Wheelchair accessible</p>
+
+            </div>
+
+            <!-- Restaurant 2 -->
+            <div
+                class="restaurant-card"
+                data-diet="gluten-free vegetarian"
+            >
+
+                <h3>Fresh Table</h3>
+
+                <p>🥗 Vegetarian</p>
+
+                <p>🌾 Gluten-Free Options</p>
+
+                <p>⭐ 4.5</p>
+
+            </div>
+
+            <!-- Restaurant 3 -->
+            <div
+                class="restaurant-card"
+                data-diet="vegan"
+            >
+
+                <h3>Plant Kitchen</h3>
+
+                <p>🌱 Vegan</p>
+
+                <p>⭐ 4.8</p>
+
+                <p>♿ Wheelchair accessible</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>© 2026 EliEats</p>
+
+</footer>
