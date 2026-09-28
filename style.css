@@ -78,6 +78,78 @@ main {
 .button:hover {
     background-color: #24563c;
 }
+/* Restaurant Page */
+
+.restaurant-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.restaurant-section h2 {
+    color: #2f6f4e;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.search-area {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.search-area input,
+.search-area select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.search-area input {
+    width: 300px;
+}
+
+.restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.restaurant-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.restaurant-card h3 {
+    color: #2f6f4e;
+    margin-bottom: 10px;
+}
+
+.restaurant-card p {
+    margin: 8px 0;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .restaurant-list {
+        grid-template-columns: 1fr;
+    }
+
+    .search-area input {
+        width: 100%;
+    }
+
+}
+
 
 /* Footer */
 
