@@ -1,4 +1,4 @@
 
 // EliEats JavaScript
 
-console.log("EliEats is running!");
+console.log("EliEats is working!");
