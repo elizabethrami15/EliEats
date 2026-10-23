@@ -1,9 +1,19 @@
-<title>Restaurants | EliEats</title>
 
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurants | EliEats</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
 <header>
-
     <h1>EliEats</h1>
 
     <nav>
@@ -11,11 +21,9 @@
         <a href="restaurants.html">Restaurants</a>
         <a href="about.html">About</a>
     </nav>
-
 </header>
 
 <main>
-
     <section class="restaurant-section">
 
         <h2>Find a Restaurant</h2>
@@ -25,50 +33,65 @@
             accessibility and dietary requirements.
         </p>
 
-        <!-- Search and Filter -->
+        <!-- Search and Filters -->
         <div class="search-area">
 
             <input
                 type="text"
                 id="searchInput"
                 placeholder="Search restaurants by name or cuisine..."
+                aria-label="Search restaurants"
             >
 
+            <label for="dietFilter">Dietary requirements</label>
+
             <select id="dietFilter">
-
-                <option value="all">
-                    All Dietary Options
-                </option>
-
-                <option value="vegetarian">
-                    Vegetarian
-                </option>
-
-                <option value="vegan">
-                    Vegan
-                </option>
-
-                <option value="gluten-free">
-                    Gluten-Free
-                </option>
+                <option value="all">All Dietary Options</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-Free</option>
                 <option value="shellfish-free">Shellfish-Free</option>
-                
-                
-
             </select>
-        <!-- Accessibility Filter -->
-            <label for="accessFilter">Accessibility requirements</label>
+
+            <label for="accessFilter">
+                Accessibility requirements
+            </label>
+
             <select id="accessFilter">
                 <option value="all">All Accessibility Options</option>
-                <option value="wheelchair">Wheelchair-Accessible Entrance</option>
+                <option value="wheelchair">
+                    Wheelchair-Accessible Entrance
+                </option>
                 <option value="ramp">Ramp Available</option>
-                <option value="automatic-door">Automatic Door Button</option>
-                <option value="accessible-parking">Accessible Parking</option>
-                <option value="accessible-restroom">Accessible Restroom</option>
-                <option value="accessible-seating">Accessible Seating</option>
-                <option value="accessible-sidewalk">Accessible Sidewalk or Path</option>
+                <option value="automatic-door">
+                    Automatic Door Button
+                </option>
+                <option value="accessible-parking">
+                    Accessible Parking
+                </option>
+                <option value="accessible-restroom">
+                    Accessible Restroom
+                </option>
+                <option value="accessible-seating">
+                    Accessible Seating
+                </option>
+                <option value="accessible-sidewalk">
+                    Accessible Sidewalk or Path
+                </option>
             </select>
+
+            <button type="button" id="clearFilters">
+                Clear Filters
+            </button>
+
         </div>
+
+        <!-- Results Information -->
+        <p id="resultsCount" aria-live="polite"></p>
+
+        <p id="noResults" hidden>
+            No restaurants match your search. Try changing your filters.
+        </p>
 
         <!-- Restaurant Cards -->
         <div id="restaurantList" class="restaurant-list">
@@ -77,16 +100,13 @@
             <div
                 class="restaurant-card"
                 data-diet="vegetarian vegan"
+                data-access="wheelchair"
             >
-
                 <h3>Green Garden</h3>
 
-                <p>🥗 Vegetarian & Vegan</p>
-
+                <p>🥗 Vegetarian and Vegan Options</p>
                 <p>⭐ 4.7</p>
-
-                <p>♿ Wheelchair accessible</p>
-
+                <p>♿ Wheelchair Accessible</p>
             </div>
 
             <!-- Restaurant 2 -->
@@ -94,67 +114,62 @@
                 class="restaurant-card"
                 data-diet="gluten-free vegetarian"
             >
-
                 <h3>Fresh Table</h3>
 
-                <p>🥗 Vegetarian</p>
-
+                <p>🥗 Vegetarian Options</p>
                 <p>🌾 Gluten-Free Options</p>
-
                 <p>⭐ 4.5</p>
-
             </div>
 
             <!-- Restaurant 3 -->
             <div
                 class="restaurant-card"
                 data-diet="vegan"
+                data-access="wheelchair"
             >
-
                 <h3>Plant Kitchen</h3>
 
-                <p>🌱 Vegan</p>
-
+                <p>🌱 Vegan Options</p>
                 <p>⭐ 4.8</p>
-
-                <p>♿ Wheelchair accessible</p>
-
+                <p>♿ Wheelchair Accessible</p>
             </div>
+
             <!-- Restaurant 4: NEFF Brewing -->
-<div
-    class="restaurant-card"
-    data-diet="vegan gluten-free"
-    data-access="wheelchair"
->
-    <h3>NEFF Brewing</h3>
+            <div
+                class="restaurant-card"
+                data-diet="vegan gluten-free"
+                data-access="wheelchair"
+            >
+                <h3>NEFF Brewing</h3>
 
-    <p>📍 321 S Frankfort Ave Ste 2, Tulsa, OK 74120</p>
+                <p>
+                    📍 321 S Frankfort Ave Ste 2,
+                    Tulsa, OK 74120
+                </p>
 
-    <p>🌱 Vegan Options Available</p>
+                <p>🌱 Vegan Options Available</p>
+                <p>🌾 Gluten-Free Options Available</p>
+                <p>♿ Wheelchair Accessible</p>
 
-    <p>🌾 Gluten-Free Options Available</p>
-
-    <p>♿ Wheelchair Accessible</p>
-
-    <p>
-        <a
-            href="https://www.google.com/maps/dir/?api=1&destination=NEFF+Brewing%2C+321+S+Frankfort+Ave+Ste+2%2C+Tulsa%2C+OK+74120"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            📍 Get Directions
-        </a>
-    </p>
-</div>
+                <p>
+                    <a
+                        href="https://www.google.com/maps/dir/?api=1&amp;destination=NEFF+Brewing%2C+321+S+Frankfort+Ave+Ste+2%2C+Tulsa%2C+OK+74120"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        📍 Get Directions
+                    </a>
+                </p>
+            </div>
 
         </div>
 
     </section>
-
 </main>
 
 <footer>
-
     <p>© 2026 EliEats</p>
-
 </footer>
+
+</body>
+</html>
