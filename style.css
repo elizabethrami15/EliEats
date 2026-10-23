@@ -149,7 +149,69 @@ main {
     }
 
 }
+/* Customer reviews */
+.review-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
 
+.review-section h4 {
+    margin-bottom: 12px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-form label {
+    font-weight: bold;
+}
+
+.rating-select,
+.review-comment {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.review-comment {
+    resize: vertical;
+}
+
+.review-form button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #276749;
+    color: white;
+    cursor: pointer;
+}
+
+.review-form button:hover {
+    background-color: #1f523a;
+}
+
+.review-list {
+    margin-top: 15px;
+}
+
+.review-item {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f5f7f5;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+
+.review-item p:first-child {
+    color: #d99a00;
+    letter-spacing: 2px;
+}
 
 /* Footer */
 
