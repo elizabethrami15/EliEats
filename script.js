@@ -97,5 +97,105 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show all restaurants when the page first loads
     filterRestaurants();
+   // Customer reviews and star ratings
+const reviewContainer = document.getElementById("restaurantList");
 
+function getReviewKey(card) {
+    const name = card.querySelector("h3").textContent.trim();
+    return "elieats-reviews-" + name;
+}
+
+function renderReviews(card) {
+    const reviewList = card.querySelector(".review-list");
+    if (!reviewList) return;
+
+    reviewList.replaceChildren();
+
+    let reviews = [];
+
+    try {
+        reviews = JSON.parse(
+            localStorage.getItem(getReviewKey(card)) || "[]"
+        );
+    } catch (error) {
+        reviews = [];
+    }
+
+    if (reviews.length === 0) {
+        reviewList.textContent = "No reviews yet. Be the first!";
+        return;
+    }
+
+    reviews.forEach(function (review) {
+        const reviewItem = document.createElement("div");
+        reviewItem.className = "review-item";
+
+        const stars = document.createElement("p");
+        stars.textContent =
+            "★".repeat(review.rating) +
+            "☆".repeat(5 - review.rating);
+
+        const comment = document.createElement("p");
+        comment.textContent = review.comment;
+
+        reviewItem.append(stars, comment);
+        reviewList.appendChild(reviewItem);
+    });
+}
+
+// Display saved reviews when the page loads
+restaurantCards.forEach(function (card) {
+    renderReviews(card);
+});
+
+// Handle review submissions
+if (reviewContainer) {
+    reviewContainer.addEventListener("submit", function (event) {
+        if (!event.target.matches(".review-form")) return;
+
+        event.preventDefault();
+
+        const form = event.target;
+        const card = form.closest(".restaurant-card");
+
+        const rating = Number(
+            form.querySelector(".rating-select").value
+        );
+
+        const comment = form.querySelector(".review-comment")
+            .value.trim();
+
+        if (!card || rating < 1 || rating > 5 || !comment) {
+            return;
+        }
+
+        let reviews = [];
+
+        try {
+            reviews = JSON.parse(
+                localStorage.getItem(getReviewKey(card)) || "[]"
+            );
+        } catch (error) {
+            reviews = [];
+        }
+
+        reviews.push({
+            rating: rating,
+            comment: comment
+        });
+
+        try {
+            localStorage.setItem(
+                getReviewKey(card),
+                JSON.stringify(reviews)
+            );
+        } catch (error) {
+            alert("Unable to save your review in this browser.");
+            return;
+        }
+
+        renderReviews(card);
+        form.reset();
+    });
+}
 });
