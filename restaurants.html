@@ -96,49 +96,67 @@
         <!-- Restaurant Cards -->
         <div id="restaurantList" class="restaurant-list">
 
-            <!-- Restaurant 1 -->
-            <div
-                class="restaurant-card"
-                data-diet="vegetarian vegan"
-                data-access="wheelchair"
-            >
-                <h3>Green Garden</h3>
+        
+<!-- Restaurant: Inheritance Juicery Downtown -->
+<div
+    class="restaurant-card"
+    data-diet="vegetarian vegan gluten-free dairy-free"
+    data-access=""
+>
+    <h3>Inheritance Juicery Downtown</h3>
 
-                <p>🥗 Vegetarian and Vegan Options</p>
-                <p>⭐ 4.7</p>
-                <p>♿ Wheelchair Accessible</p>
-                <!-- Customer Reviews -->
-<div class="review-section">
-    <h4>Leave a Review</h4>
+    <p>🥗 Vegetarian Options</p>
+    <p>🌱 Vegan Options</p>
+    <p>🌾 Gluten-Free Options</p>
+    <p>🥛 Dairy-Free Options</p>
+    <p>🥤 Fresh Juices and Smoothies</p>
 
-    <form class="review-form">
-        <label>Star Rating</label>
+    <p>📍 Downtown Tulsa</p>
 
-        <select class="rating-select" required>
-            <option value="">Choose a rating</option>
-            <option value="5">★★★★★ - 5 Stars</option>
-            <option value="4">★★★★☆ - 4 Stars</option>
-            <option value="3">★★★☆☆ - 3 Stars</option>
-            <option value="2">★★☆☆☆ - 2 Stars</option>
-            <option value="1">★☆☆☆☆ - 1 Star</option>
-        </select>
+    <p>
+        <a
+            href="https://inheritancejuicery.toast.site/order/inheritance-juicery-downtown"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            View Menu
+        </a>
+    </p>
 
-        <label>Comments</label>
+    <!-- Customer Reviews -->
+    <div class="review-section">
+        <h4>Leave a Review</h4>
 
-        <textarea
-            class="review-comment"
-            placeholder="Share your experience..."
-            rows="4"
-            maxlength="1000"
-            required
-        ></textarea>
+        <form class="review-form">
+            <label>Star Rating</label>
 
-        <button type="submit">Submit Review</button>
-    </form>
+            <select class="rating-select" required>
+                <option value="">Choose a rating</option>
+                <option value="5">★★★★★ - 5 Stars</option>
+                <option value="4">★★★★☆ - 4 Stars</option>
+                <option value="3">★★★☆☆ - 3 Stars</option>
+                <option value="2">★★☆☆☆ - 2 Stars</option>
+                <option value="1">★☆☆☆☆ - 1 Star</option>
+            </select>
 
-    <div class="review-list" aria-live="polite"></div>
+            <label>Comments</label>
+
+            <textarea
+                class="review-comment"
+                placeholder="Share your experience..."
+                rows="4"
+                maxlength="1000"
+                required
+            ></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <div class="review-list" aria-live="polite"></div>
+    </div>
+
 </div>
-            </div>
+
 
             <!-- Restaurant 2 -->
             <div
