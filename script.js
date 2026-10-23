@@ -198,4 +198,151 @@ if (reviewContainer) {
         form.reset();
     });
 }
+ 
+const SUPABASE_URL = "https://ijzpuocfnopawvvpipsv.supabase.co";
+const SUPABASE_KEY = "sb_publishable_jkAYCNzIfaiTSdqboGdULg_ceWaBIK1";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const restaurantSelect =
+  document.getElementById("restaurant-select");
+const commentForm = document.getElementById("comment-form");
+const commentList = document.getElementById("comment-list");
+const commentStatus = document.getElementById("comment-status");
+
+// Do not run the review code on pages without its form.
+if (restaurantSelect && commentForm) {
+  initializeReviews();
+
+  async function initializeReviews() {
+    const { data, error } = await supabaseClient
+      .from("restaurants")
+      .select("id, name, location")
+      .order("name");
+
+    if (error) {
+      commentStatus.textContent =
+        "Could not load restaurants. Please try again.";
+      console.error(error);
+      return;
+    }
+
+    data.forEach((restaurant) => {
+      const option = document.createElement("option");
+      option.value = restaurant.id;
+      option.textContent =
+        `${restaurant.name} — ${restaurant.location}`;
+      restaurantSelect.appendChild(option);
+    });
+
+    await loadComments();
+  }
+
+  async function loadComments() {
+    const { data, error } = await supabaseClient
+      .from("restaurant_comments")
+      .select(`
+        id,
+        restaurant_id,
+        display_name,
+        comment,
+        rating,
+        created_at,
+        restaurants (name, location)
+      `)
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      commentStatus.textContent =
+        "Could not load reviews.";
+      console.error(error);
+      return;
+    }
+
+    commentList.replaceChildren();
+
+    if (data.length === 0) {
+      commentList.textContent = "No comments yet.";
+      return;
+    }
+
+    data.forEach((review) => {
+      const article = document.createElement("article");
+      const heading = document.createElement("h3");
+      const details = document.createElement("p");
+      const body = document.createElement("p");
+
+      heading.textContent =
+        review.restaurants
+          ? `${review.restaurants.name} — ${review.restaurants.location}`
+          : "Restaurant review";
+
+      details.textContent =
+        `${review.display_name} · ` +
+        (review.rating
+          ? `${review.rating}/5 stars`
+          : "No rating") +
+        ` · ${new Date(review.created_at).toLocaleDateString()}`;
+
+      // textContent prevents comments from being interpreted as HTML.
+      body.textContent = review.comment;
+
+      article.append(heading, details, body);
+      commentList.appendChild(article);
+    });
+  }
+
+  commentForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    commentStatus.textContent = "";
+
+    const restaurantId = restaurantSelect.value;
+    const displayName =
+      document.getElementById("display-name").value.trim();
+    const comment =
+      document.getElementById("comment-text").value.trim();
+    const ratingValue =
+      document.getElementById("rating").value;
+
+    if (!restaurantId || !displayName || !comment) {
+      commentStatus.textContent =
+        "Please complete the required fields.";
+      return;
+    }
+
+    if (displayName.length > 40 || comment.length > 1000) {
+      commentStatus.textContent =
+        "Please shorten your name or comment.";
+      return;
+    }
+
+    const rating = ratingValue
+      ? Number(ratingValue)
+      : null;
+
+    const { error } = await supabaseClient
+      .from("restaurant_comments")
+      .insert({
+        restaurant_id: Number(restaurantId),
+        display_name: displayName,
+        comment,
+        rating
+      });
+
+    if (error) {
+      commentStatus.textContent =
+        "Your comment could not be saved. Please try again.";
+      console.error(error);
+      return;
+    }
+
+    commentStatus.textContent = "Comment saved successfully!";
+    commentForm.reset();
+    await loadComments();
+  });
+}
+
 });
