@@ -366,6 +366,54 @@
             </div>
 
         </div>
+    
+<section id="reviews">
+  <h2>Restaurant Reviews</h2>
+  <p>Share your experience to help other diners.</p>
+
+  <form id="comment-form">
+    <label for="restaurant-select">Restaurant</label>
+    <select id="restaurant-select" required>
+      <option value="">Choose a restaurant</option>
+    </select>
+
+    <label for="display-name">Display name</label>
+    <input
+      id="display-name"
+      type="text"
+      maxlength="40"
+      required
+      placeholder="Enter a display name"
+    />
+
+    <label for="rating">Rating</label>
+    <select id="rating">
+      <option value="">No rating</option>
+      <option value="1">1 star</option>
+      <option value="2">2 stars</option>
+      <option value="3">3 stars</option>
+      <option value="4">4 stars</option>
+      <option value="5">5 stars</option>
+    </select>
+
+    <label for="comment-text">Your comment</label>
+    <textarea
+      id="comment-text"
+      maxlength="1000"
+      required
+      placeholder="Describe your experience..."
+    ></textarea>
+
+    <button type="submit">Submit Comment</button>
+  </form>
+
+  <p id="comment-status" role="status" aria-live="polite"></p>
+  <div id="comment-list"></div>
+</section>
+
+<!-- Load Supabase before your own JavaScript. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
 
     </section>
 </main>
