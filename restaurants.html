@@ -31,7 +31,7 @@
             <input
                 type="text"
                 id="searchInput"
-                placeholder="Search restaurants..."
+                placeholder="Search restaurants by name or cuisine..."
             >
 
             <select id="dietFilter">
@@ -51,9 +51,23 @@
                 <option value="gluten-free">
                     Gluten-Free
                 </option>
+                <option value="shellfish-free">Shellfish-Free</option>
+                
+                
 
             </select>
-
+        <!-- Accessibility Filter -->
+            <label for="accessFilter">Accessibility requirements</label>
+            <select id="accessFilter">
+                <option value="all">All Accessibility Options</option>
+                <option value="wheelchair">Wheelchair-Accessible Entrance</option>
+                <option value="ramp">Ramp Available</option>
+                <option value="automatic-door">Automatic Door Button</option>
+                <option value="accessible-parking">Accessible Parking</option>
+                <option value="accessible-restroom">Accessible Restroom</option>
+                <option value="accessible-seating">Accessible Seating</option>
+                <option value="accessible-sidewalk">Accessible Sidewalk or Path</option>
+            </select>
         </div>
 
         <!-- Restaurant Cards -->
