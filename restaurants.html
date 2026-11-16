@@ -92,324 +92,304 @@
             No restaurants match your search. Try changing your filters.
         </p>
 
-        <!-- Restaurant Cards -->
-        <div id="restaurantList" class="restaurant-list">
+<div id="restaurantList" class="restaurant-list">
 
-        
-<!-- Restaurant: Inheritance Juicery Downtown -->
-<div
-    class="restaurant-card"
-    data-diet="vegetarian vegan gluten-free dairy-free"
-    data-access=""
->
-    <h3>Inheritance Juicery Downtown</h3>
-
-    <p>🥗 Vegetarian Options</p>
-    <p>🌱 Vegan Options</p>
-    <p>⭐ 4.7</p>
-    <p>🌾 Gluten-Free Options</p>
-    <p>🥛 Dairy-Free Options</p>
-    <p>🥤 Fresh Juices and Smoothies</p>
-
-    <p>
-    📍 <a
-        href="https://www.google.com/maps/dir/?api=1&destination=Inheritance+Juicery+Downtown%2C+Tulsa%2C+OK"
-        target="_blank"
-        rel="noopener noreferrer"
+    <!-- Restaurant 1: Inheritance Juicery Downtown -->
+    <div
+        class="restaurant-card"
+        data-restaurant-id="inheritance-juicery-downtown"
+        data-diet="vegetarian vegan gluten-free dairy-free"
+        data-access=""
     >
-        Get Directions
-    </a>
-    </p>
+        <h3>Inheritance Juicery Downtown</h3>
 
-    <!-- Customer Reviews -->
-    <div class="review-section">
-        <h4>Leave a Review</h4>
+        <p>🥗 Vegetarian Options</p>
+        <p>🌱 Vegan Options</p>
+        <p>⭐ 4.7</p>
+        <p>🌾 Gluten-Free Options</p>
+        <p>🥛 Dairy-Free Options</p>
+        <p>🥤 Fresh Juices and Smoothies</p>
 
-        <form class="review-form">
-            <label>Star Rating</label>
+        <p>
+            📍 <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Inheritance+Juicery+Downtown%2C+Tulsa%2C+OK"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Get Directions</a>
+        </p>
 
-            <select class="rating-select" required>
-                <option value="">Choose a rating</option>
-                <option value="5">★★★★★ - 5 Stars</option>
-                <option value="4">★★★★☆ - 4 Stars</option>
-                <option value="3">★★★☆☆ - 3 Stars</option>
-                <option value="2">★★☆☆☆ - 2 Stars</option>
-                <option value="1">★☆☆☆☆ - 1 Star</option>
-            </select>
+        <!-- Customer Reviews -->
+        <div class="review-section">
+            <h4>Customer Reviews</h4>
 
-            <label>Comments</label>
+            <form class="review-form">
+                <label>Display Name</label>
+                <input
+                    type="text"
+                    class="review-name"
+                    maxlength="40"
+                    placeholder="Enter your name"
+                    required
+                >
 
-            <textarea
-                class="review-comment"
-                placeholder="Share your experience..."
-                rows="4"
-                maxlength="1000"
-                required
-            ></textarea>
+                <label>Star Rating</label>
+                <select class="rating-select" required>
+                    <option value="">Choose a rating</option>
+                    <option value="5">★★★★★ - 5 Stars</option>
+                    <option value="4">★★★★☆ - 4 Stars</option>
+                    <option value="3">★★★☆☆ - 3 Stars</option>
+                    <option value="2">★★☆☆☆ - 2 Stars</option>
+                    <option value="1">★☆☆☆☆ - 1 Star</option>
+                </select>
 
-            <button type="submit">Submit Review</button>
-        </form>
+                <label>Comments</label>
+                <textarea
+                    class="review-comment"
+                    placeholder="Share your experience..."
+                    rows="4"
+                    maxlength="1000"
+                    required
+                ></textarea>
 
-        <div class="review-list" aria-live="polite"></div>
-    </div>
+                <button type="submit">Submit Review</button>
+            </form>
 
-</div>
+            <p class="review-status" role="status"></p>
 
-
-<!-- Restaurant: Fixins Soul Kitchen -->
-<div
-    class="restaurant-card"
-    data-diet="vegetarian vegan"
-    data-access="wheelchair"
->
-    <h3>Fixins Soul Kitchen</h3>
-
-    <p>🍗 Southern Soul Food</p>
-    <p>🥗 Vegetarian Options</p>
-    <p>🌱 Vegan Menu Available</p>
-    <p>⭐ 4.4</p>
-    <p>♿ Wheelchair Accessible</p>
-
-    <p>
-        📍 222 N Detroit Avenue, Suite 110,
-        Tulsa, OK 74120
-    </p>
-
-    <!-- Restaurant Website -->
-    <p>
-        <a
-            href="https://fixinssoulkitchen.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Visit Website
-        </a>
-    </p>
-
-    <!-- Google Maps Directions -->
-    <p>
-        📍 <a
-            href="https://www.google.com/maps/dir/?api=1&destination=222+N+Detroit+Avenue%2C+Suite+110%2C+Tulsa%2C+OK+74120"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Get Directions
-        </a>
-    </p>
-
-    <!-- Customer Reviews -->
-    <div class="review-section">
-        <h4>Leave a Review</h4>
-
-        <form class="review-form">
-            <label>Star Rating</label>
-
-            <select class="rating-select" required>
-                <option value="">Choose a rating</option>
-                <option value="5">★★★★★ - 5 Stars</option>
-                <option value="4">★★★★☆ - 4 Stars</option>
-                <option value="3">★★★☆☆ - 3 Stars</option>
-                <option value="2">★★☆☆☆ - 2 Stars</option>
-                <option value="1">★☆☆☆☆ - 1 Star</option>
-            </select>
-
-            <label>Comments</label>
-
-            <textarea
-                class="review-comment"
-                placeholder="Share your experience..."
-                rows="4"
-                maxlength="1000"
-                required
-            ></textarea>
-
-            <button type="submit">Submit Review</button>
-        </form>
-
-        <div class="review-list" aria-live="polite"></div>
-    </div>
-</div>
-<!-- Restaurant: Bull In The Alley -->
-<div
-    class="restaurant-card"
-    data-diet="shellfish-free"
-    data-access="wheelchair"
->
-    <h3>Bull In The Alley</h3>
-
-    <p>🥩 High-End Chophouse</p>
-    <p>🚫 Shellfish-Free Options (Steaks & Chops)</p>
-    <p>⭐ 4.6</p>
-    <p>♿ Wheelchair Accessible</p>
-
-    <p>
-        📍 11 E Reconciliation Way, 
-        Tulsa, OK 74103
-    </p>
-
-    <!-- Restaurant Website -->
-    <p>
-        <a
-            href="https://bullinthealley.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Visit Website
-        </a>
-    </p>
-
-    <!-- Google Maps Directions -->
-    <p>
-        📍 <a
-            href="https://www.google.com/maps/dir/?api=1&destination=11+E+Reconciliation+Way%2C+Tulsa%2C+OK+74103"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Get Directions
-        </a>
-    </p>
-
-    <!-- Customer Reviews -->
-    <div class="review-section">
-        <h4>Leave a Review</h4>
-
-        <form class="review-form">
-            <label>Star Rating</label>
-
-            <select class="rating-select" required>
-                <option value="">Choose a rating</option>
-                <option value="5">★★★★★ - 5 Stars</option>
-                <option value="4">★★★★☆ - 4 Stars</option>
-                <option value="3">★★★☆☆ - 3 Stars</option>
-                <option value="2">★★☆☆☆ - 2 Stars</option>
-                <option value="1">★☆☆☆☆ - 1 Star</option>
-            </select>
-
-            <label>Comments</label>
-
-            <textarea
-                class="review-comment"
-                placeholder="Share your experience..."
-                rows="4"
-                maxlength="1000"
-                required
-            ></textarea>
-
-            <button type="submit">Submit Review</button>
-        </form>
-
-        <div class="review-list" aria-live="polite"></div>
-    </div>
-</div>
-
-            </div>
-
-            <!-- Restaurant 4: NEFF Brewing -->
-            <div
-                class="restaurant-card"
-                data-diet="vegan gluten-free"
-                data-access="wheelchair"
-            >
-                <h3>NEFF Brewing</h3>
-
-                <p>
-                    📍 321 S Frankfort Ave Ste 2,
-                    Tulsa, OK 74120
-                </p>
-
-                <p>🌱 Vegan Options Available</p>
-                <p>🌾 Gluten-Free Options Available</p>
-                 <p>⭐ 4.5</p>
-                <p>♿ Wheelchair Accessible</p>
-
-                <p>
-                    <a
-                        href="https://www.google.com/maps/dir/?api=1&amp;destination=NEFF+Brewing%2C+321+S+Frankfort+Ave+Ste+2%2C+Tulsa%2C+OK+74120"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        📍 Get Directions
-                    </a>
-                </p>
-                <!-- Customer Reviews -->
-<div class="review-section">
-    <h4>Leave a Review</h4>
-
-    <form class="review-form">
-        <label>Star Rating</label>
-
-        <select class="rating-select" required>
-            <option value="">Choose a rating</option>
-            <option value="5">★★★★★ - 5 Stars</option>
-            <option value="4">★★★★☆ - 4 Stars</option>
-            <option value="3">★★★☆☆ - 3 Stars</option>
-            <option value="2">★★☆☆☆ - 2 Stars</option>
-            <option value="1">★☆☆☆☆ - 1 Star</option>
-        </select>
-
-        <label>Comments</label>
-
-        <textarea
-            class="review-comment"
-            placeholder="Share your experience..."
-            rows="4"
-            maxlength="1000"
-            required
-        ></textarea>
-
-        <button type="submit">Submit Review</button>
-    </form>
-
-    <div class="review-list" aria-live="polite"></div>
-</div>
-            </div>
-
+            <div class="review-list" aria-live="polite"></div>
         </div>
-    
-<section id="reviews">
-  <h2>Restaurant Reviews</h2>
-  <p>Share your experience to help other diners.</p>
+    </div>
 
-  <form id="comment-form">
-    <label for="restaurant-select">Restaurant</label>
-    <select id="restaurant-select" required>
-      <option value="">Choose a restaurant</option>
-    </select>
 
-    <label for="display-name">Display name</label>
-    <input
-      id="display-name"
-      type="text"
-      maxlength="40"
-      required
-      placeholder="Enter a display name"
-    />
+    <!-- Restaurant 2: Fixins Soul Kitchen -->
+    <div
+        class="restaurant-card"
+        data-restaurant-id="fixins-soul-kitchen"
+        data-diet="vegetarian vegan"
+        data-access="wheelchair"
+    >
+        <h3>Fixins Soul Kitchen</h3>
 
-    <label for="rating">Rating</label>
-    <select id="rating">
-      <option value="">No rating</option>
-      <option value="1">1 star</option>
-      <option value="2">2 stars</option>
-      <option value="3">3 stars</option>
-      <option value="4">4 stars</option>
-      <option value="5">5 stars</option>
-    </select>
+        <p>🍗 Southern Soul Food</p>
+        <p>🥗 Vegetarian Options</p>
+        <p>🌱 Vegan Menu Available</p>
+        <p>⭐ 4.4</p>
+        <p>♿ Wheelchair Accessible</p>
 
-    <label for="comment-text">Your comment</label>
-    <textarea
-      id="comment-text"
-      maxlength="1000"
-      required
-      placeholder="Describe your experience..."
-    ></textarea>
+        <p>
+            📍 222 N Detroit Avenue, Suite 110,
+            Tulsa, OK 74120
+        </p>
 
-    <button type="submit">Submit Comment</button>
-  </form>
+        <p>
+            <a
+                href="https://fixinssoulkitchen.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Visit Website</a>
+        </p>
 
-  <p id="comment-status" role="status" aria-live="polite"></p>
-  <div id="comment-list"></div>
-</section>
+        <p>
+            📍 <a
+                href="https://www.google.com/maps/dir/?api=1&destination=222+N+Detroit+Avenue%2C+Suite+110%2C+Tulsa%2C+OK+74120"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Get Directions</a>
+        </p>
 
+        <!-- Customer Reviews -->
+        <div class="review-section">
+            <h4>Customer Reviews</h4>
+
+            <form class="review-form">
+                <label>Display Name</label>
+                <input
+                    type="text"
+                    class="review-name"
+                    maxlength="40"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label>Star Rating</label>
+                <select class="rating-select" required>
+                    <option value="">Choose a rating</option>
+                    <option value="5">★★★★★ - 5 Stars</option>
+                    <option value="4">★★★★☆ - 4 Stars</option>
+                    <option value="3">★★★☆☆ - 3 Stars</option>
+                    <option value="2">★★☆☆☆ - 2 Stars</option>
+                    <option value="1">★☆☆☆☆ - 1 Star</option>
+                </select>
+
+                <label>Comments</label>
+                <textarea
+                    class="review-comment"
+                    placeholder="Share your experience..."
+                    rows="4"
+                    maxlength="1000"
+                    required
+                ></textarea>
+
+                <button type="submit">Submit Review</button>
+            </form>
+
+            <p class="review-status" role="status"></p>
+
+            <div class="review-list" aria-live="polite"></div>
+        </div>
+    </div>
+
+
+    <!-- Restaurant 3: Bull In The Alley -->
+    <div
+        class="restaurant-card"
+        data-restaurant-id="bull-in-the-alley"
+        data-diet="shellfish-free"
+        data-access="wheelchair"
+    >
+        <h3>Bull In The Alley</h3>
+
+        <p>🥩 High-End Chophouse</p>
+        <p>🚫 Shellfish-Free Options (Steaks & Chops)</p>
+        <p>⭐ 4.6</p>
+        <p>♿ Wheelchair Accessible</p>
+
+        <p>
+            📍 11 E Reconciliation Way,
+            Tulsa, OK 74103
+        </p>
+
+        <p>
+            <a
+                href="https://bullinthealley.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Visit Website</a>
+        </p>
+
+        <p>
+            📍 <a
+                href="https://www.google.com/maps/dir/?api=1&destination=11+E+Reconciliation+Way%2C+Tulsa%2C+OK+74103"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Get Directions</a>
+        </p>
+
+        <!-- Customer Reviews -->
+        <div class="review-section">
+            <h4>Customer Reviews</h4>
+
+            <form class="review-form">
+                <label>Display Name</label>
+                <input
+                    type="text"
+                    class="review-name"
+                    maxlength="40"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label>Star Rating</label>
+                <select class="rating-select" required>
+                    <option value="">Choose a rating</option>
+                    <option value="5">★★★★★ - 5 Stars</option>
+                    <option value="4">★★★★☆ - 4 Stars</option>
+                    <option value="3">★★★☆☆ - 3 Stars</option>
+                    <option value="2">★★☆☆☆ - 2 Stars</option>
+                    <option value="1">★☆☆☆☆ - 1 Star</option>
+                </select>
+
+                <label>Comments</label>
+                <textarea
+                    class="review-comment"
+                    placeholder="Share your experience..."
+                    rows="4"
+                    maxlength="1000"
+                    required
+                ></textarea>
+
+                <button type="submit">Submit Review</button>
+            </form>
+
+            <p class="review-status" role="status"></p>
+
+            <div class="review-list" aria-live="polite"></div>
+        </div>
+    </div>
+
+
+    <!-- Restaurant 4: NEFF Brewing -->
+    <div
+        class="restaurant-card"
+        data-restaurant-id="neff-brewing"
+        data-diet="vegan gluten-free"
+        data-access="wheelchair"
+    >
+        <h3>NEFF Brewing</h3>
+
+        <p>📍 321 S Frankfort Ave Ste 2,
+            Tulsa, OK 74120</p>
+
+        <p>🌱 Vegan Options Available</p>
+        <p>🌾 Gluten-Free Options Available</p>
+        <p>⭐ 4.5</p>
+        <p>♿ Wheelchair Accessible</p>
+
+        <p>
+            📍 <a
+                href="https://www.google.com/maps/dir/?api=1&destination=NEFF+Brewing%2C+321+S+Frankfort+Ave+Ste+2%2C+Tulsa%2C+OK+74120"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Get Directions</a>
+        </p>
+
+        <!-- Customer Reviews -->
+        <div class="review-section">
+            <h4>Customer Reviews</h4>
+
+            <form class="review-form">
+                <label>Display Name</label>
+                <input
+                    type="text"
+                    class="review-name"
+                    maxlength="40"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label>Star Rating</label>
+                <select class="rating-select" required>
+                    <option value="">Choose a rating</option>
+                    <option value="5">★★★★★ - 5 Stars</option>
+                    <option value="4">★★★★☆ - 4 Stars</option>
+                    <option value="3">★★★☆☆ - 3 Stars</option>
+                    <option value="2">★★☆☆☆ - 2 Stars</option>
+                    <option value="1">★☆☆☆☆ - 1 Star</option>
+                </select>
+
+                <label>Comments</label>
+                <textarea
+                    class="review-comment"
+                    placeholder="Share your experience..."
+                    rows="4"
+                    maxlength="1000"
+                    required
+                ></textarea>
+
+                <button type="submit">Submit Review</button>
+            </form>
+
+            <p class="review-status" role="status"></p>
+
+            <div class="review-list" aria-live="polite"></div>
+        </div>
+    </div>
+
+</div>
+
+
+
+                    
 <!-- Load Supabase before your own JavaScript. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
