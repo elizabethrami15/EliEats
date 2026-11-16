@@ -212,6 +212,71 @@ main {
     color: #d99a00;
     letter-spacing: 2px;
 }
+/* Review photo thumbnails */
+.review-photos-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.review-photo {
+    width: 90px;
+    height: 90px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.review-photo:hover {
+    transform: scale(1.05);
+}
+
+/* Keep review content inside restaurant cards */
+.restaurant-card,
+.review-section,
+.review-list,
+.review-item {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.review-item {
+    overflow: hidden;
+}
+
+/* Enlarged photo viewer */
+.photo-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.photo-lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.photo-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
 
 /* Footer */
 
