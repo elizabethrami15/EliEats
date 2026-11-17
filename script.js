@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const restaurantCards =
         document.querySelectorAll(".restaurant-card");
+        console.log("EliEats script loaded");
+        console.log("Restaurant cards found:", restaurantCards.length);
 
 // ======================================
 // GOOGLE PHOTOS BUTTONS
@@ -45,6 +47,8 @@ restaurantCards.forEach(function (card) {
     if (!heading) return;
 
     const restaurantName = heading.textContent.trim();
+    console.log("Checking Google Photos for:", restaurantName);
+    
 
     // Match restaurant names without case sensitivity
     const matchingName = Object.keys(googleRestaurantSearches).find(
@@ -84,6 +88,7 @@ restaurantCards.forEach(function (card) {
 
     googleSection.appendChild(button);
     directionsLink.closest("p").after(googleSection);
+    console.log("Google Photos button added for:", restaurantName);
 });
 
 
