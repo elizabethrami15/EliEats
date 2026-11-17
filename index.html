@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,48 +6,277 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EliEats</title>
+    <title>EliEats | Restaurant Discovery</title>
 
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 
+    <style>
+        .home-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            padding: 40px 5%;
+        }
+
+        .home-hero img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .home-hero h2 {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+
+        .home-hero p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .food-category-section {
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .food-category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .food-category-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            text-align: left;
+        }
+
+        .food-category-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .food-category-card h3,
+        .food-category-card p {
+            padding: 10px 16px;
+        }
+
+        .why-section {
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .why-card {
+            background: #edf3ed;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .why-card h3 {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 750px) {
+            .home-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .food-category-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>EliEats</h1>
+<header>
+    <h1>EliEats</h1>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="about.html">About</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
 
-    <main>
+<main>
 
-        <section class="hero">
+    <!-- Main Welcome Section -->
+    <section class="home-hero">
 
-            <h2>Find Restaurants That Fit Your Needs</h2>
+        <div>
+            <h2>Discover Food. Find Your Place.</h2>
 
             <p>
-                EliEats helps users find restaurants based on
-                accessibility and dietary requirements.
+                Welcome to EliEats! Your guide to discovering
+                restaurants that fit your dietary preferences,
+                accessibility needs, and food interests.
+            </p>
+
+            <p>
+                Whether you are looking for fresh vegetarian meals,
+                gluten-free options, sushi, Southern comfort food,
+                or a new restaurant to try, EliEats helps make
+                restaurant discovery easier.
             </p>
 
             <a class="button" href="restaurants.html">
-                Find a Restaurant
+                Explore Restaurants
             </a>
+        </div>
 
-        </section>
+        <img
+            src="https://media.assettype.com/resident%2F2025-12-18%2F14mey5nf%2F1E8A6848.jpg?auto=format%2Ccompress&w=640"
+            alt="A colorful spread of fresh restaurant dishes and salads"
+        >
 
-    </main>
+    </section>
 
-    <footer>
-        <p>© 2026 EliEats</p>
-    </footer>
+
+    <!-- Food Categories -->
+    <section class="food-category-section">
+
+        <h2>Explore Different Food Options</h2>
+
+        <p>
+            Discover different cuisines and dining experiences
+            available through EliEats.
+        </p>
+
+        <div class="food-category-grid">
+
+            <div class="food-category-card">
+
+                <img
+                    src="https://images.squarespace-cdn.com/content/v1/56ba02c486db43f98ce1e28a/1561635851744-LMWME2KBYYJZI4KHAS8U/Copy%2Bof%2BSummer%2BSalads_27.jpg"
+                    alt="Fresh salads and colorful vegetable dishes"
+                    loading="lazy"
+                >
+
+                <h3>Fresh and Healthy</h3>
+
+                <p>
+                    Find restaurants offering salads, fresh ingredients,
+                    vegetarian meals, vegan choices, and healthier options.
+                </p>
+
+            </div>
+
+            <div class="food-category-card">
+
+                <img
+                    src="https://cache.marriott.com/is/image/marriotts7prod/br-yvrbr-salads-mains-11081%3AClassic-Hor?fit=constrain&wid=750"
+                    alt="Restaurant entrees and beautifully presented meals"
+                    loading="lazy"
+                >
+
+                <h3>Restaurant Favorites</h3>
+
+                <p>
+                    Explore different dining experiences, from
+                    comfort food and steakhouse meals to international cuisine.
+                </p>
+
+            </div>
+
+            <div class="food-category-card">
+
+                <img
+                    src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2152135417/settings_images/b4d3d-2e7-46da-562a-e1ad851f05_Bali_food.jpg"
+                    alt="A colorful selection of plant-based dishes"
+                    loading="lazy"
+                >
+
+                <h3>Different Dietary Choices</h3>
+
+                <p>
+                    Look for restaurants with vegetarian, vegan,
+                    gluten-free, and other dietary options.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why Use EliEats -->
+    <section class="why-section">
+
+        <h2>Why Use EliEats?</h2>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <h3>🥗 Dietary Preferences</h3>
+                <p>
+                    Find restaurants with food choices that better
+                    match your dietary preferences.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>♿ Accessibility Information</h3>
+                <p>
+                    Explore available accessibility information
+                    to help make dining decisions easier.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>⭐ Customer Reviews</h3>
+                <p>
+                    Read and share experiences, ratings, and photos
+                    to help other people discover restaurants.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Final Call to Action -->
+    <section class="hero">
+
+        <h2>Ready to Find Your Next Favorite Restaurant?</h2>
+
+        <p>
+            Start exploring restaurants and discover new places
+            to eat with EliEats.
+        </p>
+
+        <a class="button" href="restaurants.html">
+            Find a Restaurant
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 EliEats</p>
+</footer>
 
 </body>
-
 </html>
