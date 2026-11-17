@@ -261,10 +261,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const img = document.createElement("img");
 
-                    img.src = url;
-                    img.alt = "Photo submitted with restaurant review";
-                    img.className = "review-photo";
-                    img.loading = "lazy";
+                   img.src = url;
+img.alt = "Photo submitted with restaurant review";
+img.className = "review-photo";
+
+// Make the photo keyboard-accessible
+img.tabIndex = 0;
+img.setAttribute("role", "button");
+img.setAttribute("aria-label", "Click to enlarge review photo");
+
+img.loading = "lazy";
 
                     photoContainer.appendChild(img);
                 });
