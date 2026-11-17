@@ -23,556 +23,730 @@
 </header>
 
 <main>
-    <section class="restaurant-section">
+<section class="restaurant-section">
 
-        <h2>Find a Restaurant</h2>
-
-        <p>
-            Search for restaurants based on your
-            accessibility and dietary requirements.
-        </p>
-
-        <!-- Search and Filters -->
-        <div class="search-area">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search restaurants by name or cuisine..."
-                aria-label="Search restaurants"
-            >
-
-            <label for="dietFilter">Dietary requirements</label>
-
-            <select id="dietFilter">
-                <option value="all">All Dietary Options</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="gluten-free">Gluten-Free</option>
-                <option value="shellfish-free">Shellfish-Free</option>
-            </select>
-
-            <label for="accessFilter">
-                Accessibility requirements
-            </label>
-
-            <select id="accessFilter">
-                <option value="all">All Accessibility Options</option>
-                <option value="wheelchair">
-                    Wheelchair-Accessible Entrance
-                </option>
-                <option value="ramp">Ramp Available</option>
-                <option value="automatic-door">
-                    Automatic Door Button
-                </option>
-                <option value="accessible-parking">
-                    Accessible Parking
-                </option>
-                <option value="accessible-restroom">
-                    Accessible Restroom
-                </option>
-                <option value="accessible-seating">
-                    Accessible Seating
-                </option>
-                <option value="accessible-sidewalk">
-                    Accessible Sidewalk or Path
-                </option>
-            </select>
-
-            <button type="button" id="clearFilters">
-                Clear Filters
-            </button>
-
-        </div>
-
-        <!-- Results Information -->
-        <p id="resultsCount" aria-live="polite"></p>
-
-        <p id="noResults" hidden>
-            No restaurants match your search. Try changing your filters.
-        </p>
-
-<div id="restaurantList" class="restaurant-list">
-
-    <!-- Restaurant 1: Inheritance Juicery Downtown -->
-    <div
-        class="restaurant-card"
-        data-restaurant-id="inheritance-juicery-downtown"
-        data-diet="vegetarian vegan gluten-free dairy-free"
-        data-access=""
-    >
-        <h3>Inheritance Juicery Downtown</h3>
-
-        <p>🥗 Vegetarian Options</p>
-        <p>🌱 Vegan Options</p>
-        <p>⭐ 4.7</p>
-        <p>🌾 Gluten-Free Options</p>
-        <p>🥛 Dairy-Free Options</p>
-        <p>🥤 Fresh Juices and Smoothies</p>
-        <p>📍 108 S Detroit Ave, Tulsa, OK, 74120
-           </p>
-        <p>
-            <a
-                href="https://inheritancejuicery.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit Website</a>
-        </p>
-
-        <p>
-            📍 <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Inheritance+Juicery+Downtown%2C+Tulsa%2C+OK"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Get Directions</a>
-        </p>
-
-        <!-- Customer Reviews -->
-        <div class="review-section">
-            <h4>Customer Reviews</h4>
-
-            <form class="review-form">
-                <label>Display Name</label>
-                <input
-                    type="text"
-                    class="review-name"
-                    maxlength="40"
-                    placeholder="Enter your name"
-                    required
-                >
-
-                <label>Star Rating</label>
-                <select class="rating-select" required>
-                    <option value="">Choose a rating</option>
-                    <option value="5">★★★★★ - 5 Stars</option>
-                    <option value="4">★★★★☆ - 4 Stars</option>
-                    <option value="3">★★★☆☆ - 3 Stars</option>
-                    <option value="2">★★☆☆☆ - 2 Stars</option>
-                    <option value="1">★☆☆☆☆ - 1 Star</option>
-                </select>
-
-                <label>Comments</label>
-                <textarea
-                    class="review-comment"
-                    placeholder="Share your experience..."
-                    rows="4"
-                    maxlength="1000"
-                    required
-                ></textarea>
-
-                <label>Upload Photos (optional)</label>
-                
-                <input
-                    type="file"
-                    class="review-photos"
-                    accept="image/jpeg,image/png,image/webp"
-                    multiple
-                >
-                
-                <p class="photo-help">
-                    You can upload up to 3 photos (5 MB each).
-                </p>
-                
-                <button type="submit">Submit Review</button>
-            </form>
-
-            <p class="review-status" role="status"></p>
-
-            <div class="review-list" aria-live="polite"></div>
-        </div>
-    </div>
-
-
-    <!-- Restaurant 2: Fixins Soul Kitchen -->
-    <div
-        class="restaurant-card"
-        data-restaurant-id="fixins-soul-kitchen"
-        data-diet="vegetarian vegan"
-        data-access="wheelchair"
-    >
-        <h3>Fixins Soul Kitchen</h3>
-
-        <p>🍗 Southern Soul Food</p>
-        <p>🥗 Vegetarian Options</p>
-        <p>🌱 Vegan Menu Available</p>
-        <p>⭐ 4.4</p>
-        <p>♿ Wheelchair Accessible</p>
-
-        <p>
-            📍 222 N Detroit Avenue, Suite 110,
-            Tulsa, OK 74120
-        </p>
-
-        <p>
-            <a
-                href="https://fixinssoulkitchen.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit Website</a>
-        </p>
-
-        <p>
-            📍 <a
-                href="https://www.google.com/maps/dir/?api=1&destination=222+N+Detroit+Avenue%2C+Suite+110%2C+Tulsa%2C+OK+74120"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Get Directions</a>
-        </p>
-
-        <!-- Customer Reviews -->
-        <div class="review-section">
-            <h4>Customer Reviews</h4>
-
-            <form class="review-form">
-                <label>Display Name</label>
-                <input
-                    type="text"
-                    class="review-name"
-                    maxlength="40"
-                    placeholder="Enter your name"
-                    required
-                >
-
-                <label>Star Rating</label>
-                <select class="rating-select" required>
-                    <option value="">Choose a rating</option>
-                    <option value="5">★★★★★ - 5 Stars</option>
-                    <option value="4">★★★★☆ - 4 Stars</option>
-                    <option value="3">★★★☆☆ - 3 Stars</option>
-                    <option value="2">★★☆☆☆ - 2 Stars</option>
-                    <option value="1">★☆☆☆☆ - 1 Star</option>
-                </select>
-
-                <label>Comments</label>
-                <textarea
-                    class="review-comment"
-                    placeholder="Share your experience..."
-                    rows="4"
-                    maxlength="1000"
-                    required
-                ></textarea>
-
-                <label>Upload Photos (optional)</label>
-
-                <input
-                    type="file"
-                    class="review-photos"
-                    accept="image/jpeg,image/png,image/webp"
-                    multiple
-                >
-                
-                <p class="photo-help">
-                    You can upload up to 3 photos (5 MB each).
-                </p>
-                <button type="submit">Submit Review</button>
-            </form>
-
-            <p class="review-status" role="status"></p>
-
-            <div class="review-list" aria-live="polite"></div>
-        </div>
-    </div>
-
-
-    <!-- Restaurant 3: Bull In The Alley -->
-    <div
-        class="restaurant-card"
-        data-restaurant-id="bull-in-the-alley"
-        data-diet="shellfish-free"
-        data-access="wheelchair"
-    >
-        <h3>Bull In The Alley</h3>
-
-        <p>🥩 High-End Chophouse</p>
-        <p>🚫 Shellfish-Free Options (Steaks & Chops)</p>
-        <p>⭐ 4.6</p>
-        <p>♿ Wheelchair Accessible</p>
-
-        <p>
-            📍 11 E Reconciliation Way,
-            Tulsa, OK 74103
-        </p>
-
-        <p>
-            <a
-                href="https://bullinthealley.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit Website</a>
-        </p>
-
-        <p>
-            📍 <a
-                href="https://www.google.com/maps/dir/?api=1&destination=11+E+Reconciliation+Way%2C+Tulsa%2C+OK+74103"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Get Directions</a>
-        </p>
-
-        <!-- Customer Reviews -->
-        <div class="review-section">
-            <h4>Customer Reviews</h4>
-
-            <form class="review-form">
-                <label>Display Name</label>
-                <input
-                    type="text"
-                    class="review-name"
-                    maxlength="40"
-                    placeholder="Enter your name"
-                    required
-                >
-
-                <label>Star Rating</label>
-                <select class="rating-select" required>
-                    <option value="">Choose a rating</option>
-                    <option value="5">★★★★★ - 5 Stars</option>
-                    <option value="4">★★★★☆ - 4 Stars</option>
-                    <option value="3">★★★☆☆ - 3 Stars</option>
-                    <option value="2">★★☆☆☆ - 2 Stars</option>
-                    <option value="1">★☆☆☆☆ - 1 Star</option>
-                </select>
-
-                <label>Comments</label>
-                <textarea
-                    class="review-comment"
-                    placeholder="Share your experience..."
-                    rows="4"
-                    maxlength="1000"
-                    required
-                ></textarea>
-
-                <label>Upload Photos (optional)</label>
-                <input
-                    type="file"
-                    class="review-photos"
-                    accept="image/jpeg,image/png,image/webp"
-                    multiple
-                >
-                
-                <p class="photo-help">
-                    You can upload up to 3 photos (5 MB each).
-                </p>
-                
-                <button type="submit">Submit Review</button>
-            </form>
-
-            <p class="review-status" role="status"></p>
-
-            <div class="review-list" aria-live="polite"></div>
-        </div>
-    </div>
-
-
-    <!-- Restaurant 4: NEFF Brewing -->
-    <div
-        class="restaurant-card"
-        data-restaurant-id="neff-brewing"
-        data-diet="vegan gluten-free"
-        data-access="wheelchair"
-    >
-        <h3>NEFF Brewing</h3>
-
-        <p>
-        <p>🌱 Vegan Options Available</p>
-        <p>🥗 Vegetarian Options</p>
-        <p>🌾 Gluten-Free Options Available</p>
-        <p>⭐ 4.5</p>
-        <p>♿ Wheelchair Accessible</p>
-        <p>📍 321 S Frankfort Ave Ste 2,
-            Tulsa, OK 74120</p>
-         <p>
-            <a
-                href="https://www.neffbrewing.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit Website</a>
-        </p>
-
-        <p>
-            📍 <a
-                href="https://www.google.com/maps/dir/?api=1&destination=NEFF+Brewing%2C+321+S+Frankfort+Ave+Ste+2%2C+Tulsa%2C+OK+74120"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Get Directions</a>
-        </p>
-
-        <!-- Customer Reviews -->
-        <div class="review-section">
-            <h4>Customer Reviews</h4>
-
-            <form class="review-form">
-                <label>Display Name</label>
-                <input
-                    type="text"
-                    class="review-name"
-                    maxlength="40"
-                    placeholder="Enter your name"
-                    required
-                >
-
-                <label>Star Rating</label>
-                <select class="rating-select" required>
-                    <option value="">Choose a rating</option>
-                    <option value="5">★★★★★ - 5 Stars</option>
-                    <option value="4">★★★★☆ - 4 Stars</option>
-                    <option value="3">★★★☆☆ - 3 Stars</option>
-                    <option value="2">★★☆☆☆ - 2 Stars</option>
-                    <option value="1">★☆☆☆☆ - 1 Star</option>
-                </select>
-
-                <label>Comments</label>
-                <textarea
-                    class="review-comment"
-                    placeholder="Share your experience..."
-                    rows="4"
-                    maxlength="1000"
-                    required
-                ></textarea>
-
-
-                <label>Upload Photos (optional)</label>
-
-                <input
-                    type="file"
-                    class="review-photos"
-                    accept="image/jpeg,image/png,image/webp"
-                    multiple
-                >
-                
-                <p class="photo-help">
-                    You can upload up to 3 photos (5 MB each).
-                </p>
-                <button type="submit">Submit Review</button>
-            </form>
-
-            <p class="review-status" role="status"></p>
-
-            <div class="review-list" aria-live="polite"></div>
-        </div>
-    </div>
-    
-
-<!-- Restaurant 5: In The Raw Vū -->
-<div
-    class="restaurant-card"
-    data-restaurant-id="in-the-raw-vu"
-    data-diet="gluten-free"
-    data-access="wheelchair"
->
-    <h3>In The Raw Vū</h3>
-
-    <p>🍣 Japanese Cuisine and Sushi</p>
-    <p>🌾 Gluten-Free Options Available</p>
-    <p>⭐ 3.5 (Yelp)</p>
-    <p>♿ Wheelchair Accessible</p>
-    <p>🌆 Downtown Tulsa Skyline Views</p>
-    <p>🍸 Rooftop Dining and Lounge</p>
+    <h2>Find a Restaurant</h2>
 
     <p>
-        Enjoy sushi, sashimi, and contemporary Japanese cuisine
-        with sweeping views of downtown Tulsa. Located on the
-        6th floor of the Vast Bank building with an elevator, Vū offers a modern
-        dining experience with a lively atmosphere.
+        Search for restaurants based on your
+        accessibility and dietary requirements.
     </p>
 
-    <p>
-        📍 110 North Elgin Avenue,
-        Tulsa, OK 74120
+    <!-- Search and Filters -->
+    <div class="search-area">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search restaurants by name or cuisine..."
+            aria-label="Search restaurants"
+        >
+
+        <label for="dietFilter">Dietary requirements</label>
+
+        <select id="dietFilter">
+            <option value="all">All Dietary Options</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten-Free</option>
+            <option value="shellfish-free">Shellfish-Free</option>
+        </select>
+
+        <label for="accessFilter">Accessibility requirements</label>
+
+        <select id="accessFilter">
+            <option value="all">All Accessibility Options</option>
+            <option value="wheelchair">Wheelchair-Accessible Entrance</option>
+            <option value="ramp">Ramp Available</option>
+            <option value="automatic-door">Automatic Door Button</option>
+            <option value="accessible-parking">Accessible Parking</option>
+            <option value="accessible-restroom">Accessible Restroom</option>
+            <option value="accessible-seating">Accessible Seating</option>
+            <option value="accessible-sidewalk">Accessible Sidewalk or Path</option>
+        </select>
+
+        <button type="button" id="clearFilters">
+            Clear Filters
+        </button>
+
+    </div>
+
+    <!-- Results Information -->
+    <p id="resultsCount" aria-live="polite"></p>
+
+    <p id="noResults" hidden>
+        No restaurants match your search. Try changing your filters.
     </p>
 
-    <p>📞 (918) 779-7600</p>
+    <div id="restaurantList" class="restaurant-list">
 
-    <p>
-        <a
-            href="https://www.intherawsushi.com/in-the-raw-vu"
-            target="_blank"
-            rel="noopener noreferrer"
-        >Visit Website</a>
-    </p>
+        <!-- ================================= -->
+        <!-- RESTAURANT 1: INHERITANCE JUICERY -->
+        <!-- ================================= -->
 
-    <p>
-        📍 <a
-            href="https://www.google.com/maps/dir/?api=1&destination=110+North+Elgin+Avenue%2C+Tulsa%2C+OK+74120"
-            target="_blank"
-            rel="noopener noreferrer"
-        >Get Directions</a>
-    </p>
+        <div
+            class="restaurant-card"
+            data-restaurant-id="inheritance-juicery-downtown"
+            data-diet="vegetarian vegan gluten-free dairy-free"
+            data-access=""
+        >
 
-    <!-- Customer Reviews -->
-    <div class="review-section">
-        <h4>Customer Reviews</h4>
+            <h3>Inheritance Juicery Downtown</h3>
 
-        <form class="review-form">
-            <label>Display Name</label>
-            <input
-                type="text"
-                class="review-name"
-                maxlength="40"
-                placeholder="Enter your name"
-                required
-            >
+            <p>🥗 Dietary Options: Vegetarian, Vegan, Gluten-Free and Dairy-Free Choices</p>
 
-            <label>Star Rating</label>
-            <select class="rating-select" required>
-                <option value="">Choose a rating</option>
-                <option value="5">★★★★★ - 5 Stars</option>
-                <option value="4">★★★★☆ - 4 Stars</option>
-                <option value="3">★★★☆☆ - 3 Stars</option>
-                <option value="2">★★☆☆☆ - 2 Stars</option>
-                <option value="1">★☆☆☆☆ - 1 Star</option>
-            </select>
+            <p>♿ Accessibility: Wheelchair accessibility should be confirmed with the restaurant.</p>
 
-            <label>Comments</label>
-            <textarea
-                class="review-comment"
-                placeholder="Share your experience..."
-                rows="4"
-                maxlength="1000"
-                required
-            ></textarea>
+            <p>🥤 Cuisine: Organic Café, Health Food, Juices and Smoothies</p>
 
-            <label>Upload Photos (optional)</label>
-            <input
-                type="file"
-                class="review-photos"
-                accept="image/jpeg,image/png,image/webp"
-                multiple
-            >
+            <p>⭐ Rating: 4.7</p>
 
-            <p class="photo-help">
-                You can upload up to 3 photos (5 MB each).
+            <p>
+                Inheritance Juicery is an organic-focused café offering
+                fresh juices, smoothies, smoothie bowls, and plant-forward
+                meals. Its menu includes breakfast dishes, salads, wraps,
+                grain bowls, and creative vegetarian and vegan options.
             </p>
 
-            <button type="submit">Submit Review</button>
-        </form>
+            <p>
+                Customers can find dishes featuring tofu, tempeh,
+                plant-based cheese, fresh vegetables, and organic
+                ingredients. The restaurant is a good option for people
+                looking for a casual meal with customizable dietary choices.
+            </p>
 
-        <p class="review-status" role="status"></p>
+            <p>🥑 Breakfast and Brunch Options</p>
+            <p>🥤 Fresh Juices and Smoothies</p>
+            <p>🌱 Plant-Based Meals</p>
+            <p>🥗 Salads, Wraps and Grain Bowls</p>
 
-        <div class="review-list" aria-live="polite"></div>
+            <p>
+                📍 108 S Detroit Ave, Tulsa, OK 74120
+            </p>
+
+            <p>
+                🌐
+                <a
+                    href="https://inheritancejuicery.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Visit Website</a>
+            </p>
+
+            <p>
+                📍
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=108+S+Detroit+Ave%2C+Tulsa%2C+OK+74120"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Get Directions</a>
+            </p>
+
+            <!-- Customer Reviews -->
+            <div class="review-section">
+
+                <h4>Customer Reviews</h4>
+
+                <form class="review-form">
+
+                    <label>Display Name</label>
+                    <input
+                        type="text"
+                        class="review-name"
+                        maxlength="40"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label>Star Rating</label>
+                    <select class="rating-select" required>
+                        <option value="">Choose a rating</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                    </select>
+
+                    <label>Comments</label>
+                    <textarea
+                        class="review-comment"
+                        placeholder="Share your experience..."
+                        rows="4"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+                    <label>Upload Photos (optional)</label>
+                    <input
+                        type="file"
+                        class="review-photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <p class="photo-help">
+                        You can upload up to 3 photos (5 MB each).
+                    </p>
+
+                    <button type="submit">Submit Review</button>
+
+                </form>
+
+                <p class="review-status" role="status"></p>
+
+                <div class="review-list" aria-live="polite"></div>
+
+            </div>
+        </div>
+
+
+        <!-- ================================ -->
+        <!-- RESTAURANT 2: FIXINS SOUL KITCHEN -->
+        <!-- ================================ -->
+
+        <div
+            class="restaurant-card"
+            data-restaurant-id="fixins-soul-kitchen"
+            data-diet="vegetarian vegan"
+            data-access="wheelchair"
+        >
+
+            <h3>Fixins Soul Kitchen</h3>
+
+            <p>🥗 Dietary Options: Vegetarian and Vegan Menu Options</p>
+
+            <p>♿ Accessibility: Listed as Wheelchair Accessible</p>
+
+            <p>🍗 Cuisine: Southern Food, Soul Food and American Comfort Food</p>
+
+            <p>⭐ Rating: 4.4</p>
+
+            <p>
+                Fixins Soul Kitchen is a Southern soul food restaurant
+                located in Tulsa's historic Greenwood District.
+                The restaurant celebrates traditional Southern cooking
+                while offering a modern and welcoming dining atmosphere.
+            </p>
+
+            <p>
+                Its menu features Southern favorites such as fried chicken,
+                oxtails, shrimp and grits, chicken and waffles, and
+                traditional side dishes. Guests can also enjoy desserts
+                such as peach cobbler, banana pudding, and red velvet cake.
+            </p>
+
+            <p>
+                Fixins also offers a dedicated vegan menu, giving customers
+                additional choices beyond its traditional meat-based dishes.
+                The restaurant serves weekend brunch and offers a
+                full-service dining experience.
+            </p>
+
+            <p>🍗 Fried Chicken and Southern Comfort Food</p>
+            <p>🥬 Traditional Southern Side Dishes</p>
+            <p>🌱 Dedicated Vegan Menu</p>
+            <p>🍰 Southern Desserts</p>
+            <p>🍳 Weekend Brunch</p>
+            <p>📍 Historic Greenwood District</p>
+
+            <p>
+                📍 222 N Detroit Avenue, Suite 110, Tulsa, OK 74120
+            </p>
+
+            <p>
+                🌐
+                <a
+                    href="https://fixinssoulkitchen.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Visit Website</a>
+            </p>
+
+            <p>
+                📍
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=222+N+Detroit+Avenue+Suite+110%2C+Tulsa%2C+OK+74120"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Get Directions</a>
+            </p>
+
+            <!-- Customer Reviews -->
+            <div class="review-section">
+
+                <h4>Customer Reviews</h4>
+
+                <form class="review-form">
+
+                    <label>Display Name</label>
+                    <input
+                        type="text"
+                        class="review-name"
+                        maxlength="40"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label>Star Rating</label>
+                    <select class="rating-select" required>
+                        <option value="">Choose a rating</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                    </select>
+
+                    <label>Comments</label>
+                    <textarea
+                        class="review-comment"
+                        placeholder="Share your experience..."
+                        rows="4"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+                    <label>Upload Photos (optional)</label>
+                    <input
+                        type="file"
+                        class="review-photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <p class="photo-help">
+                        You can upload up to 3 photos (5 MB each).
+                    </p>
+
+                    <button type="submit">Submit Review</button>
+
+                </form>
+
+                <p class="review-status" role="status"></p>
+
+                <div class="review-list" aria-live="polite"></div>
+
+            </div>
+        </div>
+
+
+        <!-- =============================== -->
+        <!-- RESTAURANT 3: BULL IN THE ALLEY -->
+        <!-- =============================== -->
+
+        <div
+            class="restaurant-card"
+            data-restaurant-id="bull-in-the-alley"
+            data-diet=""
+            data-access="wheelchair"
+        >
+
+            <h3>Bull In The Alley</h3>
+
+            <p>🥩 Dietary Options: Ask About Menu Modifications and Food Allergies</p>
+
+            <p>♿ Accessibility: Listed as Wheelchair Accessible</p>
+
+            <p>🍽️ Cuisine: American Steakhouse, Fine Dining and Chophouse</p>
+
+            <p>⭐ Rating: 4.6</p>
+
+            <p>
+                Bull In The Alley is an upscale steakhouse located in
+                downtown Tulsa's Arts District. Known for its unique
+                entrance through a brick-lined alley, the restaurant
+                offers an intimate dining atmosphere with dim lighting
+                and classic steakhouse décor.
+            </p>
+
+            <p>
+                Its menu focuses on premium steaks, seafood, appetizers,
+                and shareable side dishes. Popular menu selections include
+                porterhouse steaks, filet mignon, shrimp cocktail,
+                oysters, and specialty sides such as Brussels sprouts
+                and creamed spinach.
+            </p>
+
+            <p>
+                The restaurant also features a full bar, specialty cocktails,
+                and a signature martini cart. Its upscale atmosphere makes
+                it a popular choice for date nights, anniversaries,
+                celebrations, and special occasions.
+            </p>
+
+            <p>🥩 Premium Steaks and Chops</p>
+            <p>🦐 Seafood and Appetizers</p>
+            <p>🍄 Shareable Side Dishes</p>
+            <p>🍸 Specialty Cocktails and Martini Cart</p>
+            <p>🌙 Upscale and Intimate Dining Atmosphere</p>
+
+            <p>
+                📍 11 E Reconciliation Way, Tulsa, OK 74103
+            </p>
+
+            <p>
+                🌐
+                <a
+                    href="https://bullinthealley.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Visit Website</a>
+            </p>
+
+            <p>
+                📍
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=11+E+Reconciliation+Way%2C+Tulsa%2C+OK+74103"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Get Directions</a>
+            </p>
+
+            <!-- Customer Reviews -->
+            <div class="review-section">
+
+                <h4>Customer Reviews</h4>
+
+                <form class="review-form">
+
+                    <label>Display Name</label>
+                    <input
+                        type="text"
+                        class="review-name"
+                        maxlength="40"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label>Star Rating</label>
+                    <select class="rating-select" required>
+                        <option value="">Choose a rating</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                    </select>
+
+                    <label>Comments</label>
+                    <textarea
+                        class="review-comment"
+                        placeholder="Share your experience..."
+                        rows="4"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+                    <label>Upload Photos (optional)</label>
+                    <input
+                        type="file"
+                        class="review-photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <p class="photo-help">
+                        You can upload up to 3 photos (5 MB each).
+                    </p>
+
+                    <button type="submit">Submit Review</button>
+
+                </form>
+
+                <p class="review-status" role="status"></p>
+
+                <div class="review-list" aria-live="polite"></div>
+
+            </div>
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- RESTAURANT 4: NEFF BREWING -->
+        <!-- ========================= -->
+
+        <div
+            class="restaurant-card"
+            data-restaurant-id="neff-brewing"
+            data-diet="gluten-free vegetarian vegan"
+            data-access="wheelchair"
+        >
+
+            <h3>NEFF Brewing</h3>
+
+            <p>🌾 Dietary Options: Dedicated Gluten-Free Menu, Vegetarian and Vegan Choices</p>
+
+            <p>♿ Accessibility: Listed as Wheelchair Accessible</p>
+
+            <p>🍺 Cuisine: American Brewpub, Brewery and Comfort Food</p>
+
+            <p>⭐ Rating: 4.5</p>
+
+            <p>
+                NEFF Brewing is a family-owned brewery and restaurant
+                located in downtown Tulsa. It is especially known for
+                being a dedicated gluten-free establishment. Both its
+                beer and food menus are designed to be gluten-free,
+                making it a distinctive option for customers with
+                celiac disease or gluten sensitivities.
+            </p>
+
+            <p>
+                The restaurant offers a casual brewpub atmosphere
+                with classic comfort foods such as burgers, fish and
+                chips, chicken tenders, fried pickles, onion rings,
+                and fries. NEFF also produces craft beers made from
+                gluten-free grains.
+            </p>
+
+            <p>
+                NEFF offers vegetarian and vegan choices as well as
+                a covered outdoor patio. Its relaxed atmosphere makes
+                it a good place for casual meals, gatherings, and
+                enjoying craft beer.
+            </p>
+
+            <p>🍺 Gluten-Free Craft Beer</p>
+            <p>🍔 Classic Brewpub Comfort Food</p>
+            <p>🌾 Dedicated Gluten-Free Kitchen</p>
+            <p>🌱 Vegetarian and Vegan Choices</p>
+            <p>🌤️ Covered Outdoor Patio</p>
+            <p>👨‍👩‍👧 Family-Friendly Dining</p>
+
+            <p>
+                📍 321 S Frankfort Ave Ste 2, Tulsa, OK 74120
+            </p>
+
+            <p>
+                🌐
+                <a
+                    href="https://www.neffbrewing.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Visit Website</a>
+            </p>
+
+            <p>
+                📍
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=321+S+Frankfort+Ave+Ste+2%2C+Tulsa%2C+OK+74120"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Get Directions</a>
+            </p>
+
+            <!-- Customer Reviews -->
+            <div class="review-section">
+
+                <h4>Customer Reviews</h4>
+
+                <form class="review-form">
+
+                    <label>Display Name</label>
+                    <input
+                        type="text"
+                        class="review-name"
+                        maxlength="40"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label>Star Rating</label>
+                    <select class="rating-select" required>
+                        <option value="">Choose a rating</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                    </select>
+
+                    <label>Comments</label>
+                    <textarea
+                        class="review-comment"
+                        placeholder="Share your experience..."
+                        rows="4"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+                    <label>Upload Photos (optional)</label>
+                    <input
+                        type="file"
+                        class="review-photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <p class="photo-help">
+                        You can upload up to 3 photos (5 MB each).
+                    </p>
+
+                    <button type="submit">Submit Review</button>
+
+                </form>
+
+                <p class="review-status" role="status"></p>
+
+                <div class="review-list" aria-live="polite"></div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================== -->
+        <!-- RESTAURANT 5: IN THE RAW VŪ -->
+        <!-- ============================== -->
+
+        <div
+            class="restaurant-card"
+            data-restaurant-id="in-the-raw-vu"
+            data-diet="gluten-free"
+            data-access="wheelchair"
+        >
+
+            <h3>In The Raw Vū</h3>
+
+            <p>🌾 Dietary Options: Gluten-Free Options Available</p>
+
+            <p>♿ Accessibility: Listed as Wheelchair Accessible</p>
+
+            <p>🍣 Cuisine: Japanese Cuisine, Sushi and Asian-Inspired Dishes</p>
+
+            <p>⭐ Rating: 3.5 (Yelp)</p>
+
+            <p>
+                In The Raw Vū is a Japanese restaurant and rooftop
+                dining destination in downtown Tulsa. It offers
+                sushi, sashimi, and contemporary Japanese cuisine
+                with sweeping views of the downtown skyline.
+            </p>
+
+            <p>
+                Located on the 6th floor of the Vast Bank building,
+                the restaurant provides a modern dining experience
+                with a lively atmosphere. Its menu features sushi
+                rolls, fresh seafood, and other Japanese-inspired
+                dishes.
+            </p>
+
+            <p>
+                In The Raw Vū also features rooftop dining and a lounge
+                area, making it a destination for people looking to
+                enjoy dinner, drinks, and city views. Gluten-free
+                options are available; customers with dietary
+                restrictions should confirm ingredients and
+                preparation with the restaurant.
+            </p>
+
+            <p>🍣 Sushi and Sashimi</p>
+            <p>🥢 Japanese and Asian-Inspired Cuisine</p>
+            <p>🌾 Gluten-Free Options</p>
+            <p>🌆 Downtown Tulsa Skyline Views</p>
+            <p>🍸 Rooftop Dining and Lounge</p>
+
+            <p>
+                📍 110 North Elgin Avenue, Tulsa, OK 74120
+            </p>
+
+            <p>📞 (918) 779-7600</p>
+
+            <p>
+                🌐
+                <a
+                    href="https://www.intherawsushi.com/in-the-raw-vu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Visit Website</a>
+            </p>
+
+            <p>
+                📍
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=110+North+Elgin+Avenue%2C+Tulsa%2C+OK+74120"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Get Directions</a>
+            </p>
+
+            <!-- Customer Reviews -->
+            <div class="review-section">
+
+                <h4>Customer Reviews</h4>
+
+                <form class="review-form">
+
+                    <label>Display Name</label>
+                    <input
+                        type="text"
+                        class="review-name"
+                        maxlength="40"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label>Star Rating</label>
+                    <select class="rating-select" required>
+                        <option value="">Choose a rating</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                    </select>
+
+                    <label>Comments</label>
+                    <textarea
+                        class="review-comment"
+                        placeholder="Share your experience..."
+                        rows="4"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+                    <label>Upload Photos (optional)</label>
+                    <input
+                        type="file"
+                        class="review-photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <p class="photo-help">
+                        You can upload up to 3 photos (5 MB each).
+                    </p>
+
+                    <button type="submit">Submit Review</button>
+
+                </form>
+
+                <p class="review-status" role="status"></p>
+
+                <div class="review-list" aria-live="polite"></div>
+
+            </div>
+        </div>
+
     </div>
-</div>
+    <!-- End restaurantList -->
 
-</div>
-
-
-</div>
-
-
-
-                    
-<!-- Load Supabase before your own JavaScript. -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiF-KRkRYRBmM_da9CWZAvTwGrwiX43Kk&libraries=places"></script>
-
-<script src="script.js"></script>
-    </section>
+</section>
 </main>
 
 <footer>
     <p>© 2026 EliEats</p>
 </footer>
+
+<!-- Supabase must load before script.js -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Keep your existing Google Maps API script here.
+     Replace YOUR_GOOGLE_MAPS_API_KEY with your restricted API key. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+
+<!-- Your existing JavaScript -->
+<script src="script.js"></script>
 
 </body>
 </html>
