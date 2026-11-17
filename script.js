@@ -282,7 +282,53 @@ document.addEventListener("DOMContentLoaded", function () {
             reviewList.appendChild(reviewItem);
         });
     }
+    
+// ======================================
+// ENLARGE REVIEW PHOTOS
+// ======================================
 
+document.addEventListener("click", function (event) {
+
+    if (!event.target.classList.contains("review-photo")) {
+        return;
+    }
+
+    const lightbox = document.createElement("div");
+    lightbox.className = "photo-lightbox";
+
+    const enlargedImage = document.createElement("img");
+    enlargedImage.src = event.target.src;
+    enlargedImage.alt = event.target.alt;
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "photo-lightbox-close";
+    closeButton.textContent = "×";
+    closeButton.setAttribute("aria-label", "Close enlarged photo");
+
+    function closeLightbox() {
+        lightbox.remove();
+        document.removeEventListener("keydown", handleEscape);
+    }
+
+    function handleEscape(keyEvent) {
+        if (keyEvent.key === "Escape") {
+            closeLightbox();
+        }
+    }
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (clickEvent) {
+        if (clickEvent.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", handleEscape);
+
+    lightbox.append(closeButton, enlargedImage);
+    document.body.appendChild(lightbox);
+});
 
     // ======================================
     // 5. UPLOAD REVIEW PHOTOS
