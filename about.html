@@ -330,99 +330,71 @@
             to EliEats? We would love to hear from you!
         </p>
 
-        <form
-            class="contact-form"
-            action="mailto:elizabethramireztuiz529@gmail.com"
-            method="post"
-            enctype="text/plain"
-        >
 
-            <label for="contactName">Your Name</label>
+<form class="contact-form" id="contactForm">
 
-            <input
-                type="text"
-                id="contactName"
-                name="Name"
-                placeholder="Enter your name"
-                maxlength="60"
-                required
-            >
+    <label for="contactName">Name</label>
+    <input
+        type="text"
+        id="contactName"
+        name="name"
+        placeholder="Enter your name"
+        required
+    >
 
+    <label for="contactEmail">Email</label>
+    <input
+        type="email"
+        id="contactEmail"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
 
-            <label for="contactEmail">Email Address</label>
+    <label for="contactCategory">What would you like to do?</label>
+    <select id="contactCategory" name="category" required>
+        <option value="">Select an option</option>
+        <option value="Question">Ask a Question</option>
+        <option value="Complaint">Submit a Complaint</option>
+        <option value="Restaurant Suggestion">Suggest a Restaurant</option>
+        <option value="Incorrect Information">Report Incorrect Information</option>
+        <option value="Other Feedback">Other Feedback</option>
+    </select>
 
-            <input
-                type="email"
-                id="contactEmail"
-                name="Email"
-                placeholder="Enter your email address"
-                required
-            >
+    <label for="restaurantName">Restaurant Name (if applicable)</label>
+    <input
+        type="text"
+        id="restaurantName"
+        name="restaurant_name"
+        placeholder="Enter restaurant name"
+    >
 
+    <label for="restaurantLocation">Restaurant Location (if applicable)</label>
+    <input
+        type="text"
+        id="restaurantLocation"
+        name="restaurant_location"
+        placeholder="Enter restaurant location"
+    >
 
-            <label for="contactType">What would you like to do?</label>
+    <label for="contactMessage">Message</label>
+    <textarea
+        id="contactMessage"
+        name="message"
+        rows="5"
+        placeholder="Type your question, complaint, or suggestion..."
+        required
+    ></textarea>
 
-            <select
-                id="contactType"
-                name="Request Type"
-                required
-            >
-                <option value="">Select an option</option>
-                <option value="Question">Ask a Question</option>
-                <option value="Complaint">Submit a Complaint</option>
-                <option value="Restaurant Suggestion">Suggest a Restaurant</option>
-                <option value="Correction">Report Incorrect Information</option>
-                <option value="Other Feedback">Other Feedback</option>
-            </select>
+    <button type="submit" id="contactSubmit">
+        Submit Message
+    </button>
 
+    <p id="contactStatus" role="status" aria-live="polite"></p>
 
-            <label for="restaurantName">
-                Restaurant Name (if applicable)
-            </label>
-
-            <input
-                type="text"
-                id="restaurantName"
-                name="Restaurant Name"
-                placeholder="Enter restaurant name"
-                maxlength="100"
-            >
-
-
-            <label for="restaurantLocation">
-                Restaurant Location (if applicable)
-            </label>
-
-            <input
-                type="text"
-                id="restaurantLocation"
-                name="Restaurant Location"
-                placeholder="Enter restaurant address or city"
-                maxlength="150"
-            >
-
-
-            <label for="contactMessage">Message</label>
-
-            <textarea
-                id="contactMessage"
-                name="Message"
-                rows="6"
-                maxlength="2000"
-                placeholder="Tell us how we can help or share your suggestion..."
-                required
-            ></textarea>
-
-
-            <button type="submit">
-                Submit Message
-            </button>
-
-            <p class="contact-note">
-                Thank you for helping us improve EliEats!
-            </p>
-
-        </form>
+</form>
+            
+             
 
     </section>
 
@@ -448,6 +420,62 @@
 <footer>
     <p>© 2026 EliEats</p>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const SUPABASE_URL = "https://ijzpuocfnopawvvpipsv.supabase.co";
+
+    // Copy the same publishable key used in your existing script.js.
+    // Do NOT use your service_role or secret key.
+    const SUPABASE_KEY = "PASTE_YOUR_EXISTING_PUBLISHABLE_KEY_HERE";
+
+    const contactSupabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const contactForm = document.getElementById("contactForm");
+    const contactStatus = document.getElementById("contactStatus");
+    const contactSubmit = document.getElementById("contactSubmit");
+
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        contactSubmit.disabled = true;
+        contactStatus.textContent = "Submitting your message...";
+
+        const submission = {
+            name: document.getElementById("contactName").value.trim(),
+            email: document.getElementById("contactEmail").value.trim(),
+            category: document.getElementById("contactCategory").value,
+            restaurant_name: document.getElementById("restaurantName").value.trim(),
+            restaurant_location: document.getElementById("restaurantLocation").value.trim(),
+            message: document.getElementById("contactMessage").value.trim()
+        };
+
+        const { error } = await contactSupabase
+            .from("contact_submissions")
+            .insert([submission]);
+
+        if (error) {
+            console.error("Contact form error:", error);
+            contactStatus.textContent =
+                "Sorry, your message could not be submitted. Please try again.";
+        } else {
+            contactStatus.textContent =
+                "Thank you! Your message has been submitted successfully.";
+
+            contactForm.reset();
+        }
+
+        contactSubmit.disabled = false;
+    });
+
+});
+</script>
 
 </body>
 </html>
