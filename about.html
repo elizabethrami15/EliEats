@@ -426,6 +426,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("EliEats contact script loaded");
 
     const SUPABASE_URL = "https://ijzpuocfnopawvvpipsv.supabase.co";
 
@@ -441,6 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactSubmit = document.getElementById("contactSubmit");
 
     contactForm.addEventListener("submit", async function (event) {
+        console.log("Contact form submission detected");
 
         // Prevent the browser from leaving the About page
         event.preventDefault();
