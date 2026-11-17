@@ -742,6 +742,7 @@ document.addEventListener("click", function (event) {
                 // Upload selected photos first
                 const selectedPhotos =
                     photoInput ? photoInput.files : [];
+                    console.log("Number of photos selected:", selectedPhotos.length);
 
                 const imageUrls =
                     await uploadReviewPhotos(selectedPhotos);
