@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const restaurantCards =
         document.querySelectorAll(".restaurant-card");
-        // ======================================
+
+// ======================================
 // GOOGLE PHOTOS BUTTONS
 // ======================================
 
@@ -32,11 +33,10 @@ const googleRestaurantSearches = {
         "Bull In The Alley, 11 E Reconciliation Way, Tulsa, Oklahoma",
 
     "NEFF Brewing":
-        "NEFF Brewing, 321 S Frankfort Ave, Tulsa, Oklahoma"
-    
-"In The Raw Vū":
-    "In The Raw Vū, 110 North Elgin Avenue, Tulsa, Oklahoma",
+        "NEFF Brewing, 321 S Frankfort Ave, Tulsa, Oklahoma",
 
+    "In The Raw Vū":
+        "In The Raw Vū, 110 North Elgin Avenue, Tulsa, Oklahoma"
 };
 
 restaurantCards.forEach(function (card) {
@@ -45,17 +45,30 @@ restaurantCards.forEach(function (card) {
     if (!heading) return;
 
     const restaurantName = heading.textContent.trim();
-    const searchQuery = googleRestaurantSearches[restaurantName];
 
-    if (!searchQuery) return;
+    // Match restaurant names without case sensitivity
+    const matchingName = Object.keys(googleRestaurantSearches).find(
+        name => name.toLowerCase() === restaurantName.toLowerCase()
+    );
+
+    if (!matchingName) {
+        console.log("No Google Photos search configured for:", restaurantName);
+        return;
+    }
+
+    const searchQuery = googleRestaurantSearches[matchingName];
 
     const directionsLink = Array.from(
         card.querySelectorAll("a")
-    ).find(function (link) {
-        return link.textContent.trim() === "Get Directions";
-    });
+    ).find(link => link.textContent.trim() === "Get Directions");
 
-    if (!directionsLink) return;
+    if (!directionsLink) {
+        console.log("Get Directions link not found for:", restaurantName);
+        return;
+    }
+
+    // Prevent duplicate buttons
+    if (card.querySelector(".google-photos-button")) return;
 
     const googleSection = document.createElement("div");
     googleSection.className = "google-photos-section";
