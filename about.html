@@ -27,12 +27,14 @@
         }
 
         .about-intro p,
-        .about-purpose p {
+        .about-purpose p,
+        .why-created p {
             line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        .about-purpose {
+        .about-purpose,
+        .why-created {
             padding: 35px 5%;
             text-align: center;
         }
@@ -72,6 +74,67 @@
             margin-top: 20px;
         }
 
+        .why-created {
+            background: #edf3ed;
+            margin: 20px 5%;
+            border-radius: 15px;
+        }
+
+        .contact-section {
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 650px;
+            margin: 25px auto;
+            padding: 25px;
+            background: #edf3ed;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            background: #2f6f4e;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .contact-form button:hover {
+            background: #24563c;
+        }
+
+        .contact-note {
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
         @media (max-width: 750px) {
             .about-intro {
                 grid-template-columns: 1fr;
@@ -82,6 +145,7 @@
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -197,6 +261,44 @@
     </section>
 
 
+    <!-- Why I Created EliEats -->
+    <section class="why-created">
+
+        <h2>Why I Created EliEats</h2>
+
+        <p>
+            I created EliEats because I realized that people can develop new allergies 
+            or become disabled at any time. My step-father fell off a ladder at work and needed to
+            use a wheelchair for almost a year. It was hard to get around and have family nights
+            afterwards since some entrances were in the back of the building. 
+            
+            These are situations that do not discriminate, 
+            and it is up to the community to help each other.
+            
+        </p>
+
+        <p>
+            So I wanted to create something that could help people
+            discover new restaurants while making it easier to
+            find information about dietary options and accessibility.
+        </p>
+
+        <p>
+            Through this project, I also wanted to apply what I
+            have learned about web development, databases, and
+            programming to build an application that has a
+            practical purpose.
+        </p>
+
+        <p>
+            My goal is to continue improving EliEats and make it
+            a helpful resource for people looking for their next
+            dining experience.
+        </p>
+
+    </section>
+
+
     <!-- Food Image Section -->
     <section class="about-image-section">
 
@@ -213,6 +315,114 @@
             alt="A selection of colorful fresh restaurant meals"
             loading="lazy"
         >
+
+    </section>
+
+
+    <!-- Contact and Feedback -->
+    <section class="contact-section">
+
+        <h2>Contact and Feedback</h2>
+
+        <p>
+            Have a question, noticed something that needs to be
+            corrected, or know a restaurant that should be added
+            to EliEats? We would love to hear from you!
+        </p>
+
+        <form
+            class="contact-form"
+            action="mailto:elizabethramireztuiz529@gmail.com"
+            method="post"
+            enctype="text/plain"
+        >
+
+            <label for="contactName">Your Name</label>
+
+            <input
+                type="text"
+                id="contactName"
+                name="Name"
+                placeholder="Enter your name"
+                maxlength="60"
+                required
+            >
+
+
+            <label for="contactEmail">Email Address</label>
+
+            <input
+                type="email"
+                id="contactEmail"
+                name="Email"
+                placeholder="Enter your email address"
+                required
+            >
+
+
+            <label for="contactType">What would you like to do?</label>
+
+            <select
+                id="contactType"
+                name="Request Type"
+                required
+            >
+                <option value="">Select an option</option>
+                <option value="Question">Ask a Question</option>
+                <option value="Complaint">Submit a Complaint</option>
+                <option value="Restaurant Suggestion">Suggest a Restaurant</option>
+                <option value="Correction">Report Incorrect Information</option>
+                <option value="Other Feedback">Other Feedback</option>
+            </select>
+
+
+            <label for="restaurantName">
+                Restaurant Name (if applicable)
+            </label>
+
+            <input
+                type="text"
+                id="restaurantName"
+                name="Restaurant Name"
+                placeholder="Enter restaurant name"
+                maxlength="100"
+            >
+
+
+            <label for="restaurantLocation">
+                Restaurant Location (if applicable)
+            </label>
+
+            <input
+                type="text"
+                id="restaurantLocation"
+                name="Restaurant Location"
+                placeholder="Enter restaurant address or city"
+                maxlength="150"
+            >
+
+
+            <label for="contactMessage">Message</label>
+
+            <textarea
+                id="contactMessage"
+                name="Message"
+                rows="6"
+                maxlength="2000"
+                placeholder="Tell us how we can help or share your suggestion..."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+                Submit Message
+            </button>
+
+            <p class="contact-note">
+                Thank you for helping us improve EliEats!
+            </p>
+
+        </form>
 
     </section>
 
