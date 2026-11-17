@@ -34,7 +34,7 @@ const googleRestaurantSearches = {
     "NEFF Brewing":
         "NEFF Brewing, 321 S Frankfort Ave, Tulsa, Oklahoma"
     
-"in the raw Vū":
+"In The Raw Vū":
     "In The Raw Vū, 110 North Elgin Avenue, Tulsa, Oklahoma",
 
 };
