@@ -17,7 +17,282 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const restaurantCards =
         document.querySelectorAll(".restaurant-card");
+        // ======================================
+// GOOGLE PHOTOS BUTTONS
+// ======================================
 
+const googleRestaurantSearches = {
+    "Inheritance Juicery Downtown":
+        "Inheritance Juicery Downtown, Tulsa, Oklahoma",
+
+    "Fixins Soul Kitchen":
+        "Fixins Soul Kitchen, 222 N Detroit Avenue, Tulsa, Oklahoma",
+
+    "Bull In The Alley":
+        "Bull In The Alley, 11 E Reconciliation Way, Tulsa, Oklahoma",
+
+    "NEFF Brewing":
+        "NEFF Brewing, 321 S Frankfort Ave, Tulsa, Oklahoma"
+};
+
+restaurantCards.forEach(function (card) {
+
+    const heading = card.querySelector("h3");
+    if (!heading) return;
+
+    const restaurantName = heading.textContent.trim();
+    const searchQuery = googleRestaurantSearches[restaurantName];
+
+    if (!searchQuery) return;
+
+    const directionsLink = Array.from(
+        card.querySelectorAll("a")
+    ).find(function (link) {
+        return link.textContent.trim() === "Get Directions";
+    });
+
+    if (!directionsLink) return;
+
+    const googleSection = document.createElement("div");
+    googleSection.className = "google-photos-section";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "google-photos-button";
+    button.textContent = "View Google Photos";
+
+    button.addEventListener("click", function () {
+        openGooglePhotos(searchQuery);
+    });
+
+    googleSection.appendChild(button);
+    directionsLink.closest("p").after(googleSection);
+});
+
+
+// ======================================
+// GOOGLE PHOTOS POPUP AND CAROUSEL
+// ======================================
+
+let googlePhotoModal = null;
+
+async function openGooglePhotos(searchQuery) {
+
+    if (!window.google || !google.maps) {
+        alert("Google Maps could not load. Please try again.");
+        return;
+    }
+
+    createGooglePhotoModal();
+
+    const imageArea =
+        googlePhotoModal.querySelector(".google-photo-image-area");
+
+    const title =
+        googlePhotoModal.querySelector(".google-photo-title");
+
+    const attribution =
+        googlePhotoModal.querySelector(".google-photo-attribution");
+
+    const mapsLink =
+        googlePhotoModal.querySelector(".google-photo-maps-link");
+
+    imageArea.textContent = "Loading Google photos...";
+    title.textContent = searchQuery;
+    attribution.replaceChildren();
+    mapsLink.hidden = true;
+
+    googlePhotoModal.hidden = false;
+
+    try {
+
+        const { Place } =
+            await google.maps.importLibrary("places");
+
+        const { places } = await Place.searchByText({
+            textQuery: searchQuery,
+            fields: [
+                "id",
+                "displayName",
+                "photos",
+                "googleMapsURI"
+            ],
+            maxResultCount: 1
+        });
+
+        if (!places || places.length === 0) {
+            imageArea.textContent =
+                "We couldn't find this restaurant on Google.";
+            return;
+        }
+
+        const place = places[0];
+        const photos = place.photos || [];
+
+        title.textContent =
+            place.displayName || searchQuery;
+
+        if (place.googleMapsURI) {
+            mapsLink.href = place.googleMapsURI;
+            mapsLink.hidden = false;
+        }
+
+        if (photos.length === 0) {
+            imageArea.textContent =
+                "Google does not currently have photos for this restaurant.";
+            return;
+        }
+
+        let currentPhotoIndex = 0;
+
+        function displayPhoto() {
+
+            const photo = photos[currentPhotoIndex];
+
+            imageArea.replaceChildren();
+            attribution.replaceChildren();
+
+            const photoLink = document.createElement("a");
+
+            photoLink.href =
+                photo.googleMapsURI || place.googleMapsURI || "#";
+
+            photoLink.target = "_blank";
+            photoLink.rel = "noopener noreferrer";
+
+            const image = document.createElement("img");
+
+            image.src = photo.getURI({
+                maxWidth: 700,
+                maxHeight: 500
+            });
+
+            image.alt = "Google photo of " + place.displayName;
+
+            photoLink.appendChild(image);
+            imageArea.appendChild(photoLink);
+
+            // Google requires photo author attribution
+            (photo.authorAttributions || []).forEach(function (author) {
+
+                const authorLink = document.createElement("a");
+
+                authorLink.textContent = author.displayName;
+                authorLink.href = author.uri || place.googleMapsURI;
+                authorLink.target = "_blank";
+                authorLink.rel = "noopener noreferrer";
+
+                attribution.appendChild(authorLink);
+            });
+
+            googlePhotoModal.querySelector(
+                ".google-photo-counter"
+            ).textContent =
+                `${currentPhotoIndex + 1} of ${photos.length}`;
+        }
+
+        const previousButton =
+            googlePhotoModal.querySelector(".google-photo-previous");
+
+        const nextButton =
+            googlePhotoModal.querySelector(".google-photo-next");
+
+        previousButton.onclick = function () {
+            currentPhotoIndex =
+                (currentPhotoIndex - 1 + photos.length) % photos.length;
+            displayPhoto();
+        };
+
+        nextButton.onclick = function () {
+            currentPhotoIndex =
+                (currentPhotoIndex + 1) % photos.length;
+            displayPhoto();
+        };
+
+        displayPhoto();
+
+    } catch (error) {
+
+        console.error("Google Photos error:", error);
+
+        imageArea.textContent =
+            "Unable to load Google photos. Please check your API settings.";
+    }
+}
+
+
+// ======================================
+// CREATE GOOGLE PHOTOS POPUP
+// ======================================
+
+function createGooglePhotoModal() {
+
+    if (googlePhotoModal) return;
+
+    googlePhotoModal = document.createElement("div");
+    googlePhotoModal.className = "google-photo-modal";
+    googlePhotoModal.hidden = true;
+
+    googlePhotoModal.innerHTML = `
+        <div class="google-photo-popup" role="dialog"
+             aria-modal="true" aria-label="Google restaurant photos">
+
+            <button type="button"
+                class="google-photo-close"
+                aria-label="Close photos">×</button>
+
+            <h3 class="google-photo-title"></h3>
+
+            <div class="google-photo-image-area"></div>
+
+            <div class="google-photo-controls">
+                <button type="button"
+                    class="google-photo-previous"
+                    aria-label="Previous photo">❮</button>
+
+                <span class="google-photo-counter"></span>
+
+                <button type="button"
+                    class="google-photo-next"
+                    aria-label="Next photo">❯</button>
+            </div>
+
+            <div class="google-photo-attribution"></div>
+
+            <a class="google-photo-maps-link"
+               target="_blank"
+               rel="noopener noreferrer"
+               hidden>
+                View Google Maps Photos & Reviews
+            </a>
+
+        </div>
+    `;
+
+    document.body.appendChild(googlePhotoModal);
+
+    googlePhotoModal.querySelector(
+        ".google-photo-close"
+    ).addEventListener("click", closeGooglePhotos);
+
+    googlePhotoModal.addEventListener("click", function (event) {
+        if (event.target === googlePhotoModal) {
+            closeGooglePhotos();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !googlePhotoModal.hidden) {
+            closeGooglePhotos();
+        }
+    });
+}
+
+function closeGooglePhotos() {
+    if (googlePhotoModal) {
+        googlePhotoModal.hidden = true;
+    }
+}
     const noResults = document.getElementById("noResults");
     const resultsCount = document.getElementById("resultsCount");
 
