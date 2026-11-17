@@ -461,9 +461,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .insert([submission]);
 
         if (error) {
-            console.error("Contact form error:", error);
-            contactStatus.textContent =
-                "Sorry, your message could not be submitted. Please try again.";
+    console.error("Contact form error:", error);
+
+    contactStatus.textContent =
+        "Submission error: " + error.message;
+}
         } else {
             contactStatus.textContent =
                 "Thank you! Your message has been submitted successfully.";
