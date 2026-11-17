@@ -9,48 +9,235 @@
     <title>About EliEats</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            padding: 40px 5%;
+        }
+
+        .about-intro img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .about-intro p,
+        .about-purpose p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .about-purpose {
+            padding: 35px 5%;
+            text-align: center;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 25px 5% 40px;
+        }
+
+        .about-feature-card {
+            background: #edf3ed;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .about-feature-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .about-feature-card p {
+            line-height: 1.7;
+        }
+
+        .about-image-section {
+            padding: 35px 5%;
+            text-align: center;
+        }
+
+        .about-image-section img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .about-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
+<header>
 
-        <h1>EliEats</h1>
+    <h1>EliEats</h1>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="about.html">About</a>
-        </nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="about.html">About</a>
+    </nav>
 
-    </header>
+</header>
 
-    <main>
+<main>
 
-        <section class="hero">
+    <!-- About Introduction -->
+    <section class="about-intro">
+
+        <div>
 
             <h2>About EliEats</h2>
 
             <p>
-                EliEats is a restaurant discovery application
-                designed to help people find restaurants that
-                better match their accessibility and dietary needs.
+                EliEats is a restaurant discovery web application
+                designed to help people find restaurants that better
+                match their dietary preferences and accessibility needs.
             </p>
 
             <p>
-                The project will combine web development with
-                machine learning to analyze restaurant information
-                and user feedback.
+                Choosing where to eat can be challenging when someone
+                has specific dietary requirements or needs additional
+                accessibility information. EliEats brings restaurant
+                information together in one place to make that process
+                easier.
             </p>
 
-        </section>
+            <p>
+                The goal is to make discovering restaurants more
+                convenient, informative, and inclusive.
+            </p>
 
-    </main>
+        </div>
 
-    <footer>
-        <p>© 2026 EliEats</p>
-    </footer>
+        <img
+            src="https://media.timeout.com/images/105604135/image.jpg"
+            alt="A variety of restaurant dishes arranged on a table"
+            loading="lazy"
+        >
+
+    </section>
+
+
+    <!-- Project Purpose -->
+    <section class="about-purpose">
+
+        <h2>Our Purpose</h2>
+
+        <p>
+            EliEats focuses on making restaurant information easier
+            to explore. Users can search for restaurants, filter
+            available options, view restaurant details, and share
+            their dining experiences.
+        </p>
+
+        <p>
+            The project also explores how web development and
+            machine learning can be used to organize restaurant
+            information and analyze customer feedback.
+        </p>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="about-features">
+
+        <div class="about-feature-card">
+
+            <h3>🥗 Dietary Information</h3>
+
+            <p>
+                Explore restaurants with vegetarian, vegan,
+                gluten-free, and other dietary options.
+            </p>
+
+        </div>
+
+        <div class="about-feature-card">
+
+            <h3>♿ Accessibility Information</h3>
+
+            <p>
+                Find available information about wheelchair access
+                and other restaurant accessibility features.
+            </p>
+
+        </div>
+
+        <div class="about-feature-card">
+
+            <h3>⭐ Reviews and Photos</h3>
+
+            <p>
+                Submit restaurant ratings, written reviews,
+                and photos to share experiences with others.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Food Image Section -->
+    <section class="about-image-section">
+
+        <h2>Discover More Than Just a Meal</h2>
+
+        <p>
+            From fresh and healthy meals to different cuisines
+            and restaurant experiences, EliEats helps users
+            explore their dining options.
+        </p>
+
+        <img
+            src="https://images.squarespace-cdn.com/content/v1/56ba02c486db43f98ce1e28a/1561635851744-LMWME2KBYYJZI4KHAS8U/Copy%2Bof%2BSummer%2BSalads_27.jpg"
+            alt="A selection of colorful fresh restaurant meals"
+            loading="lazy"
+        >
+
+    </section>
+
+
+    <!-- Closing Section -->
+    <section class="hero">
+
+        <h2>Explore EliEats</h2>
+
+        <p>
+            Find restaurants, discover dining options,
+            and share your experiences.
+        </p>
+
+        <a class="button" href="restaurants.html">
+            Explore Restaurants
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 EliEats</p>
+</footer>
 
 </body>
-
 </html>
